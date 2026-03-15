@@ -1,0 +1,162 @@
+# ===========================
+# Django
+# ===========================
+*.log
+*.pot
+*.pyc
+__pycache__/
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+media/
+
+# Static files collected by collectstatic
+staticfiles/
+static_root/
+
+# Django migrations (uncomment if you don't want to track migrations)
+# */migrations/*.py
+# !*/migrations/__init__.py
+
+# ===========================
+# Python
+# ===========================
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+var/
+sdist/
+develop-eggs/
+.installed.cfg
+lib/
+lib64/
+wheels/
+share/python-wheels/
+*.whl
+MANIFEST
+
+# ===========================
+# Virtual Environments
+# ===========================
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.virtualenv/
+
+# ===========================
+# Environment Variables / Secrets
+# ===========================
+.env
+.env.*
+!.env.example
+secrets.json
+*.secret
+
+# ===========================
+# Testing & Coverage
+# ===========================
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+htmlcov/
+.pytest_cache/
+pytestdebug.log
+
+# ===========================
+# IDEs & Editors
+# ===========================
+# VS Code
+.vscode/
+*.code-workspace
+
+# PyCharm / JetBrains
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim / Neovim
+*.swp
+*.swo
+*~
+Session.vim
+
+# Emacs
+\#*\#
+.#*
+
+# ===========================
+# OS Generated Files
+# ===========================
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# Linux
+*~
+
+# ===========================
+# Node / Frontend (if applicable)
+# ===========================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnp/
+.pnp.js
+.npm/
+.yarn/
+
+# ===========================
+# Celery
+# ===========================
+celerybeat-schedule
+celerybeat.pid
+
+# ===========================
+# Docker
+# ===========================
+.dockerignore
+
+# ===========================
+# Misc
+# ===========================
+*.bak
+*.tmp
+*.orig
+*.rej
