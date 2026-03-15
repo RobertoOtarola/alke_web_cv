@@ -160,3 +160,13 @@ celerybeat.pid
 *.tmp
 *.orig
 *.rej
+
+# ===========================
+# Notes
+# ===========================
+NOTES.md
+project_review.md
+walkthrough.md
+walkthrough2.md
+task.md
+task2.md

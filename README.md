@@ -34,7 +34,7 @@ Aplicación web Django para editar y renderizar un Curriculum Vitae dinámico, c
 | Tecnología | Uso |
 |---|---|
 | Python 3.x | Lenguaje principal |
-| Django 4.x+ | Framework web |
+| Django 6.0 | Framework web |
 | Bootstrap 5 | Framework CSS (CDN) |
 | SQLite | Base de datos (desarrollo) |
 | Pillow | Procesamiento de imágenes (`ImageField`) |
@@ -45,19 +45,19 @@ Aplicación web Django para editar y renderizar un Curriculum Vitae dinámico, c
 ## 📁 Estructura del Proyecto
 
 ```
-roberto_portfolio/
+alke_web_cv/
 ├── .env                          ← Variables de entorno (no versionado)
 ├── .gitignore
 ├── requirements.txt
 ├── manage.py
 │
-├── roberto_portfolio/            ← Configuración Django
+├── config/                       ← Configuración Django
 │   ├── settings.py
 │   ├── urls.py
 │   ├── wsgi.py
 │   └── asgi.py
 │
-├── cv_manager/                   ← App principal
+├── cv_editor/                    ← App principal
 │   ├── migrations/
 │   ├── admin.py
 │   ├── apps.py
@@ -67,13 +67,12 @@ roberto_portfolio/
 │
 ├── templates/
 │   ├── base.html
-│   └── cv_manager/
+│   └── cv_editor/
 │       ├── inicio.html
 │       └── proyectos.html
 │
 ├── static/
-│   ├── css/custom.css
-│   └── img/profile_photo.png
+│   └── css/custom.css
 │
 └── media/                        ← Archivos subidos (ImageField)
 ```

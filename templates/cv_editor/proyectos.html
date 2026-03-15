@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}Proyectos — Roberto Otárola{% endblock %}
+
+{% block content %}
+<div class="container">
+
+    <h1 class="py-4"><i class="bi bi-folder2-open me-2"></i>Todos los Proyectos</h1>
+
+    {% if projects %}
+    <div class="row g-4">
+        {% for project in projects %}
+        <div class="col-md-6 col-lg-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">
+                        {{ project.name }}
+                        {% if project.featured %}
+                        <span class="badge bg-warning text-dark ms-1" title="Destacado">
+                            <i class="bi bi-star-fill"></i>
+                        </span>
+                        {% endif %}
+                    </h5>
+                    <p class="card-text flex-grow-1">{{ project.description }}</p>
+                    {% if project.stack %}
+                    <p class="text-muted small mb-2"><i class="bi bi-stack me-1"></i>{{ project.stack }}</p>
+                    {% endif %}
+                    {% if project.repo_url %}
+                    <a href="{{ project.repo_url }}" class="btn btn-sm btn-outline-dark mt-auto" target="_blank">
+                        <i class="bi bi-github me-1"></i>Repositorio
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="alert alert-info">
+        <i class="bi bi-info-circle me-1"></i>No hay proyectos cargados todavía.
+        <a href="/admin/cv_editor/project/add/" class="alert-link">Agregar desde el Admin</a>.
+    </div>
+    {% endif %}
+
+</div>
+{% endblock %}

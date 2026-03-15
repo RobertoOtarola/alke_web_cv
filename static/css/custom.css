@@ -1,0 +1,67 @@
+/* ===========================
+   Custom variables & overrides
+   for Bootstrap 5
+   =========================== */
+
+:root {
+    --bs-font-sans-serif: 'Inter', system-ui, -apple-system, sans-serif;
+    --bs-primary: #2563eb;
+    --bs-primary-rgb: 37, 99, 235;
+}
+
+body {
+    font-family: var(--bs-font-sans-serif);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #f8f9fa;
+}
+
+main {
+    flex: 1;
+}
+
+/* Navbar */
+.navbar-brand {
+    font-size: 1.25rem;
+    letter-spacing: -0.02em;
+}
+
+/* Cards */
+.card {
+    border: none;
+    border-radius: 0.75rem;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.12) !important;
+}
+
+/* Badges */
+.badge {
+    font-weight: 500;
+    padding: 0.45em 0.75em;
+}
+
+/* Hero section */
+#hero h1 {
+    letter-spacing: -0.03em;
+}
+
+#hero .lead {
+    font-size: 1.15rem;
+}
+
+/* Section headings */
+section h2 {
+    font-weight: 700;
+    font-size: 1.4rem;
+    letter-spacing: -0.02em;
+}
+
+/* Footer */
+footer {
+    font-size: 0.85rem;
+}
