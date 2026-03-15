@@ -1,6 +1,6 @@
 # 📝 Alke Web CV - Aplicación Web Django
 **Curso:** Desarrollo de Aplicaciones Fullstack Python Trainee  
-**Módulo:** Desarrollo de Aolicaciones Web con Python Django  
+**Módulo:** Desarrollo de Aplicaciones Web con Python Django  
 **Profesor:** Ariel Rosenamnn  
 **Alumno:** Roberto Otárola
 
@@ -18,7 +18,7 @@
 
 ```bash
 # 1. Clonar el repositorio
-git clone https://github.com/tu-usuario/alke_web_cv.git
+git clone https://github.com/RobertoOtarola/alke_web_cv.git
 cd alke_web_cv
 
 # 2. Crear y activar el entorno virtual
