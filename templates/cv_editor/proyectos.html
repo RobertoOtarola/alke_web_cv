@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}Proyectos{% endblock %}
+
+{% block content %}
+<h2 class="border-bottom pb-2 mb-4">Todos los proyectos</h2>
+<div class="row g-4">
+    {% for project in projects %}
+    <div class="col-md-6 col-lg-4">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">{{ project.name }}</h5>
+                <p class="card-text">{{ project.description }}</p>
+                {% if project.stack %}
+                <p class="text-muted small">Stack: {{ project.stack }}</p>
+                {% endif %}
+            </div>
+            {% if project.repo_url %}
+            <div class="card-footer bg-transparent">
+                <a href="{{ project.repo_url }}" class="btn btn-sm btn-outline-dark" target="_blank">Ver repositorio</a>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
