@@ -14,11 +14,11 @@ def index(request):
         'projects':    Project.objects.filter(featured=True),
         'languages':   Language.objects.all(),
     }
-    return render(request, 'cv_editor/inicio.html', context)
+    return render(request, 'cv/inicio.html', context)
 
 
 def project_list(request):
     context = {
         'projects': Project.objects.all(),
     }
-    return render(request, 'cv_editor/proyectos.html', context)
+    return render(request, 'cv/proyectos.html', context)

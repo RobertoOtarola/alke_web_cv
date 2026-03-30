@@ -1,8 +1,8 @@
-# 🐍 CV Dinámico con Django
+# 🐍 CV Dinámico con Django (Listo para Producción)
 
-**Bootcamp Desarrollo de Aplicaciones Fullstack Python Trainee | Módulo #6 | ABP**
+**Bootcamp Desarrollo de Aplicaciones Fullstack Python Trainee | Módulo #7 | Deploy**
 
-Aplicación web Django para editar y renderizar un Curriculum Vitae dinámico, con referencia de UX en LinkedIn. Permite gestionar secciones del CV (perfil, experiencia, habilidades, proyectos, educación e idiomas) desde el panel de administración de Django.
+Aplicación web Django profesional para editar y renderizar un Curriculum Vitae dinámico. Esta versión incluye refactorización de arquitectura orientada al dominio (`apps/cv`), separación estricta de entornos de configuración y todo lo necesario para despliegue en producción usando **Render** (servidor web) y **Supabase** (PostgreSQL).
 
 ---
 
@@ -11,21 +11,20 @@ Aplicación web Django para editar y renderizar un Curriculum Vitae dinámico, c
 - [Características](#-características)
 - [Tech Stack](#-tech-stack)
 - [Estructura del Proyecto](#-estructura-del-proyecto)
-- [Instalación](#-instalación)
-- [Uso](#-uso)
-- [Modelos de Datos](#-modelos-de-datos)
+- [Instalación y Uso Local](#-instalación-y-uso-local)
+- [Población Dinámica del CV](#-población-dinámica-del-cv)
+- [Despliegue a Producción](#-despliegue-a-producción-render--supabase)
 - [Convenciones Git](#-convenciones-git)
 
 ---
 
 ## ✨ Características
 
-- **CV completo en una sola página** — Hero, habilidades, experiencia reciente, educación, idiomas y proyectos destacados.
-- **Galería de proyectos** — Página dedicada con todos los proyectos y enlaces a repositorios.
-- **Panel de administración** — Gestión de contenido vía Django Admin con `AchievementInline` para logros.
-- **Diseño responsive** — Bootstrap 5 con enfoque mobile-first.
-- **Variables de entorno** — Configuración segura con `python-decouple` (`.env`).
-- **Archivos multimedia** — Soporte para foto de perfil vía `ImageField` y `MEDIA_ROOT`.
+- **Arquitectura de Dominio** — Separación del core (`config`) de la lógica de negocio (`apps/cv`).
+- **Configuración Enrutada** — División limpia entre entornos locales (`local.py`) y de producción (`production.py`).
+- **Despliegue Continuo (CI/CD Ready)** — Funciona nativamente en Render mediante `build.sh`.
+- **CV Administrable** — Panel avanzado en Django Admin con `AchievementInline`.
+- **Seguridad** — Envvars aisladas con `python-decouple`, control HTTPS directo y Cookies Seguras implementadas para producción.
 
 ---
 
@@ -33,156 +32,124 @@ Aplicación web Django para editar y renderizar un Curriculum Vitae dinámico, c
 
 | Tecnología | Uso |
 |---|---|
-| Python 3.x | Lenguaje principal |
+| Python 3.12 | Lenguaje principal |
 | Django 6.0 | Framework web |
-| Bootstrap 5 | Framework CSS (CDN) |
-| SQLite | Base de datos (desarrollo) |
-| Pillow | Procesamiento de imágenes (`ImageField`) |
-| python-decouple | Variables de entorno |
+| Gunicorn & WhiteNoise| Servidor backend de producción y renderizado de recursos estáticos |
+| Supabase (PostgreSQL)| Base de Datos en la nube (producción) |
+| SQLite | Base de datos por defecto (desarrollo local) |
 
 ---
 
 ## 📁 Estructura del Proyecto
 
-```
+```text
 alke_web_cv/
-├── .env                          ← Variables de entorno (no versionado)
-├── .gitignore
-├── requirements.txt
+├── .env                          ← Variables de entorno (ignorado en git)
+├── requirements.txt              ← Dependencias de producción
+├── build.sh                      ← Script de construcción automático para Render
+├── populate_cv.py                ← Script de semilla (Seed) de la Base de Datos
 ├── manage.py
 │
-├── config/                       ← Configuración Django
-│   ├── settings.py
+├── config/                       ← Configuración centralizada
+│   ├── settings/
+│   │   ├── base.py               ← Lógica general compartida 
+│   │   ├── local.py              ← Solo desarrollo y SQLite
+│   │   └── production.py         ← Reglas de seguridad + PostgreSQL para Render
 │   ├── urls.py
 │   ├── wsgi.py
 │   └── asgi.py
 │
-├── cv_editor/                    ← App principal
-│   ├── migrations/
-│   ├── admin.py
-│   ├── apps.py
-│   ├── models.py
-│   ├── views.py
-│   └── urls.py
+├── apps/                         ← Módulos de aplicación
+│   └── cv/                       ← Lógica del CV dinámico
+│       ├── models.py
+│       ├── views.py
+│       └── ...
 │
 ├── templates/
 │   ├── base.html
-│   └── cv_editor/
-│       ├── inicio.html
-│       └── proyectos.html
+│   └── cv/                       ← Vistas HTML del CV
 │
-├── static/
-│   └── css/custom.css
-│
-└── media/                        ← Archivos subidos (ImageField)
+├── static/                       ← Archivos de diseño CSS e imágenes
+└── media/                        ← Imágenes de perfil e integraciones multimedias cargadas
 ```
 
 ---
 
-## 🚀 Instalación
+## 🚀 Instalación y Uso Local
 
 ### 1. Clonar el repositorio
-
 ```bash
-git clone https://github.com/<tu-usuario>/alke_web_cv.git
+git clone https://github.com/robertootarola/alke_web_cv.git
 cd alke_web_cv
 ```
 
-### 2. Crear y activar entorno virtual
-
+### 2. Entorno virtual & Dependencias
 ```bash
 python -m venv venv
+source venv/bin/activate  # macOS/Linux
+# o venv\Scripts\activate para Windows
 
-# Linux / macOS
-source venv/bin/activate
-
-# Windows
-venv\Scripts\activate
-```
-
-### 3. Instalar dependencias
-
-```bash
 pip install -r requirements.txt
 ```
 
-### 4. Configurar variables de entorno
-
-Crear un archivo `.env` en la raíz del proyecto:
-
+### 3. Configurar variables de entorno (`.env`)
+Crear un archivo `.env` en la raíz del proyecto para ambiente de desarrollo:
 ```env
-SECRET_KEY=tu-clave-secreta-aqui
+SECRET_KEY=tu-clave-secreta-de-desarrollo
 DEBUG=True
+ALLOWED_HOSTS=localhost,127.0.0.1
+DATABASE_URL=sqlite:///db.sqlite3
 ```
 
-### 5. Aplicar migraciones
-
+### 4. Migraciones
+El proyecto automáticamente cargará el entorno `local.py`:
 ```bash
-python manage.py makemigrations
+python manage.py makemigrations cv
 python manage.py migrate
 ```
 
-### 6. Crear superusuario
+---
+
+## 🌱 Población Dinámica del CV
+
+Este proyecto cuenta con un script capaz de cargar todos los datos base del CV a la Base de Datos en un solo paso ahorrando ingresos manuales.
+Tras terminar las migraciones, corre este comando por consola:
 
 ```bash
-python manage.py createsuperuser
+python populate_cv.py
 ```
+*Inyectará automáticamente todo tu perfil profesional, experiencias (como AUTOENERGIAS), estudios y habilidades. Luego podrás editarlas libremente en http://localhost:8000/admin.*
 
-### 7. Ejecutar servidor de desarrollo
-
-```bash
-python manage.py runserver
-```
-
-Acceder a:
-
-| URL | Descripción |
-|---|---|
-| `http://localhost:8000/` | CV completo (Home) |
-| `http://localhost:8000/proyectos/` | Galería de proyectos |
-| `http://localhost:8000/admin/` | Panel de administración |
+Puedes abrir el servidor localmente con `python manage.py runserver` y visualizar tus logros. 
 
 ---
 
-## 💾 Modelos de Datos
+## 🌐 Despliegue a Producción (Render + Supabase)
 
-| Modelo | Descripción | Cardinalidad |
-|---|---|---|
-| `Profile` | Datos personales, título profesional, bio y foto | Único |
-| `Experience` | Empresa, cargo y fechas | Lista (ordenada por fecha) |
-| `Achievement` | Logros vinculados a una experiencia (FK) | Lista (1:N con Experience) |
-| `Education` | Título, institución y año de egreso | Lista |
-| `Skill` | Nombre y categoría (`hard` / `soft`) | Lista |
-| `Project` | Nombre, descripción, stack y flag `featured` | Lista |
-| `Language` | Idioma y nivel (A1–C2 / Nativo) | Lista |
+### Paso 1: Base de Datos (Supabase)
+Crea un proyecto gratuito en **Supabase**, dirígete a Database Settings y extrae tu `DATABASE_URL`. Reemplaza tu contraseña (evita caracteres especiales extraños para no corromper la URI).
+
+### Paso 2: Servidor (Render)
+1. Conecta tu cuenta de Github a **Render** y crea un nuevo *Web Service*.
+2. **Build Command**: `bash build.sh`
+3. **Start Command**: `gunicorn config.wsgi:application`
+4. Carga las variables de entorno (*Environment Variables*):
+   - `DATABASE_URL`: Pegar tu URL de Supabase PostgreSQL.
+   - `SECRET_KEY`: Una clave alfanumérica encriptada.
+   - `DJANGO_SETTINGS_MODULE`: `config.settings.production`
+   - `ALLOWED_HOSTS`: `[tu-dominio-render].onrender.com`
 
 ---
 
 ## 🌿 Convenciones Git
 
-### Ramas
-
-```
-main          ← producción / entrega final
-develop       ← integración continua
-feature/*     ← una rama por Task
-fix/*         ← correcciones de bugs
-```
-
-### Commits (Conventional Commits)
-
-```
-<tipo>(<scope>): <descripción imperativa>
-
-feat(models): add Achievement model with FK to Experience
-fix(admin): register Language model in admin site
-style(templates): add Bootstrap badges for hard skills section
-docs(readme): add installation and setup instructions
-chore(deps): add python-decouple to requirements.txt
-```
+**Ramas:**
+- `main`: Producción / despliegue en Render (Release versions).
+- `develop`: Integración continua de funcionalidades.
+- `feature/*`: Desarrollo de nuevas capacidades aisladas del CV.
 
 ---
 
 ## 📄 Licencia
 
-Este proyecto fue desarrollado como parte del Bootcamp Desarrollo de Aplicaciones Fullstack Python Trainee — Módulo #6 (Alke Solutions / ABP).
+Desarrollado como parte del **Bootcamp Desarrollo de Aplicaciones Fullstack Python Trainee (Módulo 7 - Deploy)**.
