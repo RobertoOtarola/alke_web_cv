@@ -162,11 +162,7 @@ celerybeat.pid
 *.rej
 
 # ===========================
-# Notes
+# Technical Design Document
 # ===========================
-NOTES.md
-project_review.md
-walkthrough.md
-walkthrough2.md
-task.md
-task2.md
+tdd
+tdd.zip
