@@ -1,4 +1,4 @@
-# 🐍 CV Dinámico con Django (Listo para Producción)
+# 🐍 CV Dinámico
 
 **Bootcamp Desarrollo de Aplicaciones Fullstack Python Trainee | Módulo #7 | Deploy**
 
