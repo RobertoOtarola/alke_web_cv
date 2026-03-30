@@ -137,7 +137,7 @@ Crea un proyecto gratuito en **Supabase**, dirígete a Database Settings y extra
    - `DATABASE_URL`: Pegar tu URL de Supabase PostgreSQL.
    - `SECRET_KEY`: Una clave alfanumérica encriptada.
    - `DJANGO_SETTINGS_MODULE`: `config.settings.production`
-   - `ALLOWED_HOSTS`: `[tu-dominio-render].onrender.com`
+   - `ALLOWED_HOSTS`: `alke-cv-web.onrender.com`
 
 ---
 
@@ -152,4 +152,4 @@ Crea un proyecto gratuito en **Supabase**, dirígete a Database Settings y extra
 
 ## 📄 Licencia
 
-Desarrollado como parte del **Bootcamp Desarrollo de Aplicaciones Fullstack Python Trainee (Módulo 7 - Deploy)**.
+GPL-3.0
