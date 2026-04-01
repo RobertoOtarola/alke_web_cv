@@ -1,24 +1,33 @@
 from django.shortcuts import render
+from django.utils import timezone
 
-# Create your views here.
 from .models import Profile, Skill, Experience, Project, Education, Language
 
 
 def index(request):
+    """Home page: full CV with all sections + computed stats + CTA to portfolio."""
+    experience_qs = Experience.objects.all()
+
+    # Compute dynamic stats for the counter bar
+    earliest_exp = experience_qs.order_by('start_date').first()
+    years_experience = 0
+    if earliest_exp:
+        years_experience = timezone.now().year - earliest_exp.start_date.year
+
+    stats = {
+        'years_experience': years_experience,
+        'total_projects':   Project.objects.count(),
+        'total_skills':     Skill.objects.count(),
+        'total_languages':  Language.objects.count(),
+    }
+
     context = {
         'profile':     Profile.objects.first(),
         'hard_skills': Skill.objects.filter(category='hard'),
         'soft_skills': Skill.objects.filter(category='soft'),
-        'experience':  Experience.objects.all()[:3],
+        'experience':  experience_qs[:3],
         'education':   Education.objects.all(),
-        'projects':    Project.objects.filter(featured=True),
         'languages':   Language.objects.all(),
+        'stats':       stats,
     }
-    return render(request, 'cv/inicio.html', context)
-
-
-def project_list(request):
-    context = {
-        'projects': Project.objects.all(),
-    }
-    return render(request, 'cv/proyectos.html', context)
+    return render(request, 'cv/index.html', context)

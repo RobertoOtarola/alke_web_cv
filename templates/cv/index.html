@@ -1,0 +1,183 @@
+{% extends 'base.html' %}
+
+{% block title %}CV — Roberto Otárola{% endblock %}
+{% block meta_description %}Curriculum Vitae de Roberto Otárola — Desarrollador Fullstack Python. Experiencia profesional, habilidades técnicas y blandas, proyectos destacados y formación académica.{% endblock %}
+
+{% block content %}
+
+<!-- ===================== HERO SECTION ===================== -->
+{% if profile %}
+<section class="hero-section" id="hero">
+    <div class="container text-center">
+        {% if profile.photo %}
+        <img src="{{ profile.photo.url }}" alt="{{ profile.full_name }}"
+             class="hero-photo mb-3">
+        {% endif %}
+        <h1 class="mb-2">{{ profile.full_name }}</h1>
+        <p class="lead mb-2">{{ profile.title }}</p>
+        <p class="bio-text mb-3">{{ profile.bio }}</p>
+        <p class="mb-3" style="opacity: 0.85;">
+            <i class="bi bi-geo-alt me-1"></i>{{ profile.location }}
+        </p>
+        <div class="d-flex justify-content-center gap-3 flex-wrap">
+            {% if profile.linkedin_url %}
+            <a href="{{ profile.linkedin_url }}" class="hero-btn btn btn-sm" target="_blank">
+                <i class="bi bi-linkedin me-1"></i>LinkedIn
+            </a>
+            {% endif %}
+            {% if profile.github_url %}
+            <a href="{{ profile.github_url }}" class="hero-btn btn btn-sm" target="_blank">
+                <i class="bi bi-github me-1"></i>GitHub
+            </a>
+            {% endif %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- ===================== STATS COUNTER BAR ===================== -->
+{% if stats %}
+<section class="stats-bar" id="stats">
+    <div class="container">
+        <div class="row g-0">
+            <div class="col-6 col-md-3">
+                <div class="stat-item">
+                    <div class="stat-number" data-target="{{ stats.years_experience }}" data-suffix="+">0</div>
+                    <div class="stat-label">Años Experiencia</div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="stat-item">
+                    <div class="stat-number" data-target="{{ stats.total_projects }}">0</div>
+                    <div class="stat-label">Proyectos</div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="stat-item">
+                    <div class="stat-number" data-target="{{ stats.total_skills }}">0</div>
+                    <div class="stat-label">Habilidades</div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="stat-item">
+                    <div class="stat-number" data-target="{{ stats.total_languages }}">0</div>
+                    <div class="stat-label">Idiomas</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<div class="container">
+
+    <!-- ===================== HARD & SOFT SKILLS ===================== -->
+    {% if hard_skills or soft_skills %}
+    <section class="section-cv reveal" id="skills">
+        <h2><i class="bi bi-gear me-2"></i>Habilidades</h2>
+
+        <!-- Filter buttons -->
+        <div class="d-flex flex-wrap gap-2 mb-3">
+            <button class="skill-filter-btn active" data-filter="all">
+                <i class="bi bi-grid-3x3-gap me-1"></i>Todas
+            </button>
+            <button class="skill-filter-btn" data-filter="hard">
+                <i class="bi bi-cpu me-1"></i>Técnicas
+            </button>
+            <button class="skill-filter-btn" data-filter="soft">
+                <i class="bi bi-people me-1"></i>Blandas
+            </button>
+        </div>
+
+        <div class="d-flex flex-wrap gap-2 stagger-children" id="skillBadges">
+            {% for skill in hard_skills %}
+            <span class="skill-badge skill-badge-hard" data-category="hard">{{ skill.name }}</span>
+            {% endfor %}
+            {% for skill in soft_skills %}
+            <span class="skill-badge skill-badge-soft" data-category="soft">{{ skill.name }}</span>
+            {% endfor %}
+        </div>
+    </section>
+    <hr class="section-divider">
+    {% endif %}
+
+    <!-- ===================== EXPERIENCE (Timeline) ===================== -->
+    {% if experience %}
+    <section class="section-cv" id="experience">
+        <h2 class="reveal"><i class="bi bi-briefcase me-2"></i>Experiencia Reciente</h2>
+
+        <div class="timeline">
+            {% for exp in experience %}
+            <div class="timeline-item reveal">
+                <div class="glass-card">
+                    <h5 class="card-title mb-1">{{ exp.role }}</h5>
+                    <h6 class="card-subtitle mb-2">
+                        {{ exp.company }} · {{ exp.start_date|date:"M Y" }} –
+                        {% if exp.end_date %}{{ exp.end_date|date:"M Y" }}{% else %}Presente{% endif %}
+                    </h6>
+                    {% if exp.achievements.all %}
+                    <ul class="mb-0 ps-3">
+                        {% for ach in exp.achievements.all %}
+                        <li class="mb-1">{{ ach.description }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    <hr class="section-divider">
+    {% endif %}
+
+    <!-- ===================== EDUCATION ===================== -->
+    {% if education %}
+    <section class="section-cv" id="education">
+        <h2 class="reveal"><i class="bi bi-mortarboard me-2"></i>Educación</h2>
+        <div class="row g-3">
+            {% for edu in education %}
+            <div class="col-md-6 edu-card reveal">
+                <div class="glass-card p-4 h-100">
+                    <h5 class="card-title mb-1" style="color: var(--clr-primary);">
+                        <i class="bi bi-award me-1"></i>{{ edu.degree }}
+                    </h5>
+                    <p class="mb-0" style="color: var(--clr-text-muted);">
+                        <i class="bi bi-building me-1"></i>{{ edu.institution }} · {{ edu.year }}
+                    </p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    <hr class="section-divider">
+    {% endif %}
+
+    <!-- ===================== LANGUAGES ===================== -->
+    {% if languages %}
+    <section class="section-cv reveal" id="languages">
+        <h2><i class="bi bi-translate me-2"></i>Idiomas</h2>
+        <div class="d-flex flex-wrap gap-2 stagger-children">
+            {% for lang in languages %}
+            <span class="lang-badge">
+                <i class="bi bi-chat-dots me-1"></i>{{ lang.name }} — {{ lang.level }}
+            </span>
+            {% endfor %}
+        </div>
+    </section>
+    <hr class="section-divider">
+    {% endif %}
+
+    <!-- ===================== CTA PORTFOLIO BANNER ===================== -->
+    <section class="section-cv reveal" id="portfolio-cta">
+        <div class="cta-portfolio-banner">
+            <h3><i class="bi bi-briefcase me-2"></i>Conoce mis Proyectos</h3>
+            <p>Explora mi portafolio completo con casos de estudio detallados y proyectos desarrollados durante mi formación.</p>
+            <a href="{% url 'portfolio:landing' %}" class="btn-cta">
+                <i class="bi bi-folder2-open me-1"></i>Ver Portfolio Completo
+            </a>
+        </div>
+    </section>
+
+</div>
+{% endblock %}
+

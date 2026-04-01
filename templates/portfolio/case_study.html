@@ -1,0 +1,137 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ case_study.project.name }} — Caso de Estudio{% endblock %}
+{% block meta_description %}Caso de estudio: {{ case_study.subtitle }}{% endblock %}
+
+{% block content %}
+
+<!-- ===================== CASE STUDY HEADER ===================== -->
+<section class="hero-section" style="padding: 4rem 0;">
+    <div class="container text-center">
+        <h1 class="mb-2">Caso de Estudio: {{ case_study.project.name }}</h1>
+        <p class="lead" style="opacity: 0.9;">{{ case_study.subtitle }}</p>
+        <a href="{% url 'portfolio:landing' %}" class="hero-btn btn btn-sm mt-3">
+            <i class="bi bi-arrow-left me-1"></i>Volver al Portafolio
+        </a>
+    </div>
+</section>
+
+<!-- ===================== CASE STUDY CONTENT ===================== -->
+<div class="container section-cv">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+
+            <!-- Preview image -->
+            {% if case_study.image %}
+            <div class="text-center mb-5 reveal">
+                <img src="{{ case_study.image.url }}" class="img-fluid rounded shadow-sm"
+                     alt="{{ case_study.project.name }} preview" style="max-height: 400px; object-fit: cover;">
+            </div>
+            {% endif %}
+
+            <!-- Section 1 -->
+            {% if case_study.section_1_description %}
+            <div class="glass-card p-4 mb-4 reveal">
+                <h3 style="color: var(--clr-secondary); border-bottom: 2px solid var(--clr-background); padding-bottom: 10px;">
+                    1. Breve descripción de la actividad
+                </h3>
+                <p class="mb-0">{{ case_study.section_1_description|linebreaksbr }}</p>
+            </div>
+            {% endif %}
+
+            <!-- Section 2 -->
+            {% if case_study.section_2_challenge %}
+            <div class="glass-card p-4 mb-4 reveal">
+                <h3 style="color: var(--clr-secondary); border-bottom: 2px solid var(--clr-background); padding-bottom: 10px;">
+                    2. Desafío principal
+                </h3>
+                <p class="mb-0">{{ case_study.section_2_challenge|linebreaksbr }}</p>
+            </div>
+            {% endif %}
+
+            <!-- Section 3 -->
+            {% if case_study.section_3_solution %}
+            <div class="glass-card p-4 mb-4 reveal">
+                <h3 style="color: var(--clr-secondary); border-bottom: 2px solid var(--clr-background); padding-bottom: 10px;">
+                    3. Solución propuesta
+                </h3>
+                <p class="mb-0">{{ case_study.section_3_solution|linebreaksbr }}</p>
+            </div>
+            {% endif %}
+
+            <!-- Section 4 -->
+            {% if case_study.section_4_tools %}
+            <div class="glass-card p-4 mb-4 reveal">
+                <h3 style="color: var(--clr-secondary); border-bottom: 2px solid var(--clr-background); padding-bottom: 10px;">
+                    4. Herramientas técnicas utilizadas
+                </h3>
+                <p class="mb-0">{{ case_study.section_4_tools|linebreaksbr }}</p>
+            </div>
+            {% endif %}
+
+            <!-- Section 5 -->
+            {% if case_study.section_5_learnings %}
+            <div class="glass-card p-4 mb-4 reveal">
+                <h3 style="color: var(--clr-secondary); border-bottom: 2px solid var(--clr-background); padding-bottom: 10px;">
+                    5. Principales aprendizajes
+                </h3>
+                <p class="mb-0">{{ case_study.section_5_learnings|linebreaksbr }}</p>
+            </div>
+            {% endif %}
+
+            <!-- Section 6 -->
+            {% if case_study.section_6_metrics %}
+            <div class="glass-card p-4 mb-4 reveal">
+                <h3 style="color: var(--clr-secondary); border-bottom: 2px solid var(--clr-background); padding-bottom: 10px;">
+                    6. Métricas de impacto
+                </h3>
+                <p class="mb-0">{{ case_study.section_6_metrics|linebreaksbr }}</p>
+            </div>
+            {% endif %}
+
+            <!-- Section 7: Skills badges -->
+            {% if case_study.section_7_skills or case_study.skills_list %}
+            <div class="glass-card p-4 mb-4 reveal">
+                <h3 style="color: var(--clr-secondary); border-bottom: 2px solid var(--clr-background); padding-bottom: 10px;">
+                    7. Habilidades técnicas aplicadas
+                </h3>
+                {% if case_study.skills_list %}
+                <div class="d-flex flex-wrap gap-2">
+                    {% for skill in case_study.skills_list %}
+                    <span class="skill-badge skill-badge-hard">{{ skill }}</span>
+                    {% endfor %}
+                </div>
+                {% endif %}
+                {% if case_study.section_7_skills %}
+                <p class="mt-3 mb-0">{{ case_study.section_7_skills|linebreaksbr }}</p>
+                {% endif %}
+            </div>
+            {% endif %}
+
+            <!-- Section 8 -->
+            {% if case_study.section_8_justification %}
+            <div class="glass-card p-4 mb-4 reveal">
+                <h3 style="color: var(--clr-secondary); border-bottom: 2px solid var(--clr-background); padding-bottom: 10px;">
+                    8. Justificación de la elección
+                </h3>
+                <p class="mb-0">{{ case_study.section_8_justification|linebreaksbr }}</p>
+            </div>
+            {% endif %}
+
+            <!-- CTA buttons -->
+            <div class="text-center mt-5 mb-4 d-flex justify-content-center gap-3 flex-wrap reveal">
+                {% if case_study.project.repo_url %}
+                <a href="{{ case_study.project.repo_url }}" target="_blank" class="btn-primary-custom">
+                    <i class="bi bi-github me-1"></i>Ver Repositorio
+                </a>
+                {% endif %}
+                <a href="{% url 'portfolio:project-list' %}" class="btn-primary-custom" style="background: var(--clr-secondary);">
+                    <i class="bi bi-grid me-1"></i>Explorar más proyectos
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

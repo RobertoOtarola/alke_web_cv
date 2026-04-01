@@ -1,0 +1,325 @@
+{
+  "profile": {
+    "full_name": "Roberto Alexandre Otárola Estrada",
+    "title": "Gerente Senior · Energías Renovables · Energía Solar FV & CSP · Desarrollo de Negocios",
+    "bio": "Gerente senior con más de 18 años de experiencia en la industria de energías renovables, especializado en energía solar fotovoltaica (FV) y concentración solar de potencia (CSP). Doble formación en Ingeniería Comercial (Economía) y Magíster en Ingeniería de la Energía (PUC). Trayectoria comprobada en desarrollo de negocios, gerenciamiento de proyectos, representación técnica internacional y gestión de equipos multidisciplinarios en mercados latinoamericanos y globales. Bilingüe español-inglés, con dominio intermedio de portugués.",
+    "location": "Santiago, Chile",
+    "phone": "+56 9 6596 1857",
+    "email": "roberto.otarola@yahoo.com",
+    "linkedin_url": "https://www.linkedin.com/in/robertootarola/",
+    "github_url": "",
+    "nationality": "Chileno",
+    "driving_license": "Clase B",
+    "available_to_travel": true
+  },
+
+  "skills": [
+    { "name": "Energía Solar Fotovoltaica (FV)", "category": "hard" },
+    { "name": "Concentración Solar de Potencia (CSP)", "category": "hard" },
+    { "name": "Sistemas de Almacenamiento de Energía (BESS)", "category": "hard" },
+    { "name": "Ingeniería Conceptual", "category": "hard" },
+    { "name": "PVsyst", "category": "hard" },
+    { "name": "NREL System Advisor Model (SAM)", "category": "hard" },
+    { "name": "RETScreen", "category": "hard" },
+    { "name": "HOMER Energy", "category": "hard" },
+    { "name": "Modelación Financiera", "category": "hard" },
+    { "name": "I+D+i (Investigación, Desarrollo e Innovación)", "category": "hard" },
+    { "name": "Desarrollo de Negocios B2B y B2C", "category": "soft" },
+    { "name": "Gerenciamiento de Proyectos", "category": "soft" },
+    { "name": "Planificación Estratégica", "category": "soft" },
+    { "name": "Negociación de Contratos", "category": "soft" },
+    { "name": "Liderazgo de Equipos Multidisciplinarios", "category": "soft" },
+    { "name": "Comunicaciones Internacionales", "category": "soft" },
+    { "name": "Docencia y Capacitación", "category": "soft" },
+    { "name": "Marketing Digital", "category": "soft" },
+    { "name": "Gestión de Presupuestos", "category": "soft" },
+    { "name": "Representación Técnica LATAM", "category": "soft" }
+  ],
+
+  "experiences": [
+    {
+      "company": "AUTOENERGIAS — Energía Solar y Baterías",
+      "role": "Product Manager – Energías Renovables",
+      "location": "Santiago, Chile",
+      "start_date": "2025-06-01",
+      "end_date": null,
+      "current": true,
+      "achievements": [
+        "Lideré el diseño conceptual de sistemas solares fotovoltaicos residenciales e industriales, incrementando la cartera de proyectos en etapa de cotización mediante estrategias de ventas B2C y B2B.",
+        "Implementé campañas de marketing digital y desarrollo web orientadas a posicionamiento de marca, ampliando el alcance comercial en el segmento de energía solar y baterías.",
+        "Gestioné el ciclo completo de productos solares desde la conceptualización técnica hasta el cierre de ventas, asegurando la alineación entre requerimientos del cliente y especificaciones técnicas."
+      ]
+    },
+    {
+      "company": "SOSTENER — Diseño e Ingeniería Sostenible",
+      "role": "Cofundador y Administrador",
+      "location": "Santiago, Chile",
+      "start_date": "2013-07-01",
+      "end_date": null,
+      "current": true,
+      "achievements": [
+        "Fundé y administré empresa de ingeniería sostenible, diseñando modelos de negocio innovadores y ejecutando proyectos de sistemas de energía renovable para clientes corporativos e institucionales.",
+        "Dirigí la gestión administrativa integral: elaboración y seguimiento de presupuestos, negociación de contratos con proveedores y clientes, y administración de recursos humanos.",
+        "Desarrollé ingeniería conceptual de sistemas de energía sostenible, posicionando a la empresa como referente técnico en el mercado chileno de energías renovables."
+      ]
+    },
+    {
+      "company": "Profesional Independiente",
+      "role": "Mentor de Negocios Sostenibles",
+      "location": "Chile",
+      "start_date": "2006-03-01",
+      "end_date": null,
+      "current": true,
+      "achievements": [
+        "Asesoré a emprendedores y empresas en la cocreación de modelos de negocio sostenibles, aplicando metodologías de Business Model Canvas para estructurar propuestas de valor en el sector energético.",
+        "Facilité la formación de equipos multidisciplinarios y la edición de planes de negocio orientados a proyectos de energías renovables e innovación sostenible."
+      ]
+    },
+    {
+      "company": "ASTRONERGY — Fabricación de Módulos Fotovoltaicos",
+      "role": "Gerente de Servicio Técnico para Latinoamérica",
+      "location": "Santiago, Chile",
+      "start_date": "2023-03-01",
+      "end_date": "2023-11-30",
+      "current": false,
+      "achievements": [
+        "Representé a fabricante líder de módulos FV ante clientes, instaladores y desarrolladores en toda Latinoamérica, estableciendo relaciones comerciales y técnicas en múltiples mercados regionales.",
+        "Lideré el análisis de requisitos técnicos de proyectos y la promoción de soluciones FV, contribuyendo al posicionamiento y penetración de la marca en el mercado latinoamericano.",
+        "Gestioné comunicaciones internacionales entre la casa matriz en China y los mercados de habla hispana, facilitando la alineación técnica y comercial en proyectos de gran escala."
+      ]
+    },
+    {
+      "company": "ATLANTICA — Infraestructura Sostenible",
+      "role": "Gerente de Desarrollo de Negocio y Construcción",
+      "location": "Santiago, Chile",
+      "start_date": "2023-01-01",
+      "end_date": "2023-01-31",
+      "current": false,
+      "achievements": [
+        "Lideré el desarrollo integral de proyectos de infraestructura sostenible, coordinando todas las etapas desde la factibilidad hasta la supervisión del proceso de construcción."
+      ]
+    },
+    {
+      "company": "UNIVERSIDAD DEL DESARROLLO — European Energy Manager",
+      "role": "Profesor del Curso: Energía Solar Fotovoltaica",
+      "location": "Santiago, Chile",
+      "start_date": "2021-03-01",
+      "end_date": "2023-03-31",
+      "current": false,
+      "achievements": [
+        "Diseñé y dicté contenido multimedia especializado en energía solar FV para el programa European Energy Manager, capacitando a profesionales del sector energético en diseño y simulación de sistemas fotovoltaicos.",
+        "Demostré el uso de software de diseño y simulación FV (PVsyst, NREL SAM) en entornos prácticos, elevando las competencias técnicas de los participantes."
+      ]
+    },
+    {
+      "company": "PONTIFICIA UNIVERSIDAD CATÓLICA DE CHILE — Grupo Solar UC",
+      "role": "Coordinador de Proyectos",
+      "location": "Santiago, Chile",
+      "start_date": "2018-04-01",
+      "end_date": "2020-11-30",
+      "current": false,
+      "achievements": [
+        "Coordiné con FRAUNHOFER CHILE RESEARCH la gestión del SGP de CORFO y las pertinencias técnicas del programa de investigación en energía solar, asegurando el cumplimiento de los requisitos del organismo financiador.",
+        "Gestioné contratos de prestaciones de servicios, pagos, reembolsos y cuentas administrativas del proyecto, optimizando el flujo financiero en un entorno de investigación académica internacional.",
+        "Elaboré informes financieros periódicos para CORFO, garantizando transparencia y trazabilidad en la ejecución presupuestaria del proyecto."
+      ]
+    },
+    {
+      "company": "CAMCHAL — European Energy Manager",
+      "role": "Profesor del Curso: Energía Solar Fotovoltaica",
+      "location": "Santiago, Chile",
+      "start_date": "2012-06-01",
+      "end_date": "2020-01-31",
+      "current": false,
+      "achievements": [
+        "Desarrollé y dicté durante 8 años el curso de Energía Solar Fotovoltaica para el programa European Energy Manager de la Cámara Chileno-Alemana de Comercio e Industria (CAMCHAL), formando a más de 150 profesionales del sector energético.",
+        "Creé contenido multimedia de alta calidad y conduje tutorías especializadas, consolidando la reputación del programa como referencia formativa en energía solar en Chile."
+      ]
+    },
+    {
+      "company": "DICTUC — Ingeniería Civil (PUC)",
+      "role": "Asesor en Proyectos de Energía Solar",
+      "location": "Santiago, Chile",
+      "start_date": "2017-09-01",
+      "end_date": "2018-09-30",
+      "current": false,
+      "achievements": [
+        "Asesoré el desarrollo de negocios y la coordinación de proyectos de energía solar, aportando expertise técnico-comercial en estudios de prefactibilidad para clientes industriales e institucionales.",
+        "Participé en proyectos de I+D+i y colaboré en actividades de difusión y transferencia tecnológica en energía solar hacia la industria y el sector público."
+      ]
+    },
+    {
+      "company": "ESOLAR — Ingeniería Solar",
+      "role": "Cofundador y Gerente General",
+      "location": "Santiago, Chile",
+      "start_date": "2013-08-01",
+      "end_date": "2016-12-31",
+      "current": false,
+      "achievements": [
+        "Fundé y dirigí empresa de ingeniería solar, liderando el diseño de modelos de negocio, la ingeniería conceptual de sistemas FV y térmicos, y el gerenciamiento de proyectos para clientes del sector privado e institucional.",
+        "Administré la operación completa de la empresa: presupuestos, negociación de contratos y gestión de RRHH, logrando sostenibilidad operacional en el mercado emergente de energía solar en Chile."
+      ]
+    },
+    {
+      "company": "BOSCH — Innovación para Tu Vida",
+      "role": "Gerente de Ventas para América Latina – Foco en Chile",
+      "location": "Santiago, Chile",
+      "start_date": "2011-06-01",
+      "end_date": "2013-06-30",
+      "current": false,
+      "achievements": [
+        "Lideré la estrategia de ventas de sistemas fotovoltaicos BOSCH para el mercado latinoamericano con foco en Chile, coordinando ingeniería conceptual de proyectos y gerenciamiento de iniciativas de alto impacto.",
+        "Desarrollé la planificación estratégica del área de energía solar y gestioné las comunicaciones con la casa matriz en Alemania, alineando la estrategia regional con los objetivos globales de la división de energías renovables.",
+        "Participé en entrenamientos técnicos en Arnstadt y Kassel (Alemania) sobre sistemas FV, inversores SMA y estructuras de montaje Schletter, ampliando el expertise técnico del equipo de ventas regional."
+      ]
+    },
+    {
+      "company": "ABENGOA — Soluciones Tecnológicas para el Desarrollo Sostenible",
+      "role": "Responsable de Energías Renovables",
+      "location": "Santiago, Chile",
+      "start_date": "2007-01-01",
+      "end_date": "2011-05-31",
+      "current": false,
+      "achievements": [
+        "Lideré el desarrollo de negocios en energías renovables, coordinando estudios interdisciplinarios que integraron ingeniería conceptual, modelación financiera y aspectos legales para la estructuración de proyectos solares en Chile.",
+        "Gerencié proyectos de energía renovable en múltiples etapas de desarrollo, asegurando el cumplimiento de plazos, presupuestos y estándares técnicos.",
+        "Elaboré y postulé propuestas de I+D+i ante organismos nacionales e internacionales, posicionando a ABENGOA como actor clave en el incipiente mercado de energías renovables en Chile.",
+        "Representé a la empresa en más de 10 foros y seminarios internacionales de energía (CORFO, CEPAL, OEA), consolidando la presencia institucional de ABENGOA en el ecosistema energético latinoamericano."
+      ]
+    },
+    {
+      "company": "ABENGOA — Soluciones Tecnológicas para el Desarrollo Sostenible",
+      "role": "Asistente Financiero",
+      "location": "Santiago, Chile",
+      "start_date": "2006-06-01",
+      "end_date": "2006-12-31",
+      "current": false,
+      "achievements": [
+        "Ejecuté análisis de financiación estructurada para proyectos, incluyendo evaluación de viabilidad, negociación de estructuras contractuales ad-hoc y seguimiento de procesos de Due Diligence.",
+        "Gestioné financiación corporativa mediante seguimiento de presupuestos y negociación de contratos de factoring, confirming y derivados financieros."
+      ]
+    },
+    {
+      "company": "ESOLAR — Ingeniería Solar",
+      "role": "Cofundador y Líder de Equipo",
+      "location": "Valparaíso, Chile",
+      "start_date": "2004-06-01",
+      "end_date": "2005-11-30",
+      "current": false,
+      "achievements": [
+        "Cofundé el proyecto ESOLAR: Una Central Eléctrica Termosolar para Chile, liderando la ingeniería conceptual de una planta CSP y el diseño del modelo de negocio, logrando el endoso de CONAMA para postular a financiamiento GEF/PNUD y clasificando como finalista del 2° Concurso de Tecnología y Negocios del Instituto 3ie (UTFSM, 2005)."
+      ]
+    }
+  ],
+
+  "education": [
+    {
+      "degree": "Magíster en Ingeniería de la Energía",
+      "institution": "Pontificia Universidad Católica de Chile — Escuela de Ingeniería",
+      "location": "Santiago, Chile",
+      "start_year": 2008,
+      "end_year": 2014,
+      "distinction": "Egresado con distinción"
+    },
+    {
+      "degree": "Ingeniero Comercial, mención Economía",
+      "institution": "Universidad de Chile — Facultad de Ciencias Económicas y Administrativas",
+      "location": "Santiago, Chile",
+      "start_year": 1998,
+      "end_year": 2004,
+      "distinction": "Tercera más alta calificación en el Examen de Título de Economía"
+    }
+  ],
+
+  "languages": [
+    { "name": "Español",   "level": "Nativo" },
+    { "name": "Inglés",    "level": "TOEIC Trabajo Avanzado (2+) — CORFO 2004" },
+    { "name": "Portugués", "level": "Intermedio" }
+  ],
+
+  "certifications": [
+    { "year": 2025, "name": "CC Certified in Cybersecurity (CC)",         "institution": "ISC2" },
+    { "year": 2025, "name": "Building Systems with the ChatGPT API",       "institution": "DeepLearning.AI" },
+    { "year": 2025, "name": "AI Python for Beginners",                     "institution": "DeepLearning.AI" },
+    { "year": 2024, "name": "ChatGPT Prompt Engineering for Developers",   "institution": "DeepLearning.AI" },
+    { "year": 2024, "name": "Startup School",                              "institution": "Y Combinator" },
+    { "year": 2023, "name": "Diplomado para Profesionales en Energía Fotovoltaica", "institution": "CPEF" },
+    { "year": 2023, "name": "Photovoltaic Systems",                        "institution": "Coursera" },
+    { "year": 2023, "name": "Generative AI for Everyone",                  "institution": "Coursera" },
+    { "year": 2022, "name": "Mejores Prácticas de Instalación de Sistemas FV con Baterías", "institution": "Solar Energy International" },
+    { "year": 2021, "name": "Choosing the Right Energy Storage System",    "institution": "CESA" },
+    { "year": 2021, "name": "Sunny Island Battery Inverter",               "institution": "SMA" },
+    { "year": 2017, "name": "Innovation Management",                       "institution": "Coursera" },
+    { "year": 2014, "name": "Photovoltaic Systems Training Course",        "institution": "Leonardo Energy" },
+    { "year": 2014, "name": "How to Build a Startup: The Lean Launchpad",  "institution": "Udacity" },
+    { "year": 2012, "name": "Entrenamiento sobre Proyectos Solares Fotovoltaicos", "institution": "BOSCH (Arnstadt, Alemania)" },
+    { "year": 2012, "name": "Intensive Seminar: Electrification of Remote Areas – Sunny Island", "institution": "SMA (Kassel, Alemania)" }
+  ],
+
+  "publications": [
+    {
+      "type": "paper",
+      "title": "Improvement of thermal performance on PV inverter rooms under high solar irradiation desert conditions",
+      "event": "SWC 2019/SHC 2019 — Congreso Mundial Solar",
+      "year": 2019,
+      "role": "Coautor"
+    },
+    {
+      "type": "paper",
+      "title": "Strategies for improving thermal performance and visual comfort in office buildings of Central Chile",
+      "event": "PLEA 2011 — 27ª Conferencia Internacional sobre Passive and Low Energy Architecture",
+      "year": 2011,
+      "role": "Coautor"
+    }
+  ],
+
+  "presentations": [
+    {
+      "event": "Eneryear Colombia 2023",
+      "location": "Medellín, Colombia",
+      "year": 2023,
+      "topic": "Panel Tecnologías: Actualidad y Novedades de los Fabricantes para el Mercado Nacional"
+    },
+    {
+      "event": "Seminario Integración Energética",
+      "location": "La Serena, Chile",
+      "year": 2018,
+      "topic": "Innovación en Proyectos de Energía"
+    },
+    {
+      "event": "Expo ERNC",
+      "location": "Santiago, Chile",
+      "year": 2017,
+      "topic": "Resource Assessment Activities at UC"
+    },
+    {
+      "event": "VII Foro Eléctrico del SING 2009",
+      "location": "Antofagasta, Chile",
+      "year": 2009,
+      "topic": "Energía Solar: Tecnologías, Proyectos y Potencial en Chile"
+    },
+    {
+      "event": "Foro Energía: Desarrollo Energético del Norte de Chile",
+      "location": "Valparaíso, Chile",
+      "year": 2009,
+      "topic": "Cluster Solar Chile, País Exportador de Energía"
+    }
+  ],
+
+  "projects": [
+    {
+      "name": "alke_web_cv — CV Web Dinámico",
+      "description": "Aplicación web Django que renderiza el CV de forma dinámica desde una base de datos PostgreSQL (Supabase) y se despliega en Render con dominio personalizado vía Cloudflare.",
+      "stack": "Python · Django 5.2 · PostgreSQL · Supabase · Render · WhiteNoise · Gunicorn",
+      "repo_url": "https://github.com/RobertoOtarola/alke_web_cv",
+      "featured": true
+    },
+    {
+      "name": "ESOLAR — Central Eléctrica Termosolar para Chile",
+      "description": "Proyecto de ingeniería conceptual de planta CSP. Finalista del 2° Concurso de Tecnología y Negocios (Instituto 3ie, UTFSM, 2005). Endosado por CONAMA para financiamiento GEF/PNUD.",
+      "stack": "Ingeniería Conceptual · CSP · Modelación Financiera",
+      "repo_url": "",
+      "featured": true
+    }
+  ]
+}

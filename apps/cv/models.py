@@ -65,6 +65,13 @@ class Project(models.Model):
     repo_url    = models.URLField(blank=True)
     featured    = models.BooleanField(default=False)
 
+    @property
+    def stack_list(self):
+        """Return stack as a list of trimmed technology names."""
+        if self.stack:
+            return [tech.strip() for tech in self.stack.split(',') if tech.strip()]
+        return []
+
     def __str__(self):
         return self.name
 

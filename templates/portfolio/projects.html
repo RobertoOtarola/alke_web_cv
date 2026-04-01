@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% block title %}Proyectos — Roberto Otárola{% endblock %}
+{% block meta_description %}Todos los proyectos de desarrollo de Roberto Otárola — Fullstack Python, Django, y más.{% endblock %}
+
+{% block content %}
+<div class="container">
+
+    <!-- Header -->
+    <section class="section-cv">
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3 mb-4 reveal">
+            <h1 style="color: var(--clr-primary); font-weight: 700;">
+                <i class="bi bi-folder2-open me-2"></i>Todos los Proyectos
+            </h1>
+
+            <!-- Search input -->
+            <div class="search-wrapper">
+                <i class="bi bi-search"></i>
+                <input type="text" id="projectSearch" class="search-input"
+                       placeholder="Buscar por nombre, stack o descripción…"
+                       aria-label="Buscar proyectos">
+            </div>
+        </div>
+
+        {% if projects %}
+        <div class="row g-4" id="projectGrid">
+            {% for project in projects %}
+            <div class="col-md-6 col-lg-4 project-card reveal">
+                <div class="glass-card">
+                    <div class="card-body">
+                        <h5 class="card-title" style="color: var(--clr-primary);">
+                            {{ project.name }}
+                            {% if project.featured %}
+                            <span class="badge badge-featured ms-1"
+                                  data-bs-toggle="tooltip" title="Proyecto Destacado">
+                                <i class="bi bi-star-fill"></i>
+                            </span>
+                            {% endif %}
+                        </h5>
+                        <p class="card-text">{{ project.description }}</p>
+                        {% if project.stack %}
+                        <div class="stack-tags mb-3">
+                            {% for tech in project.stack_list %}
+                            <span class="stack-tag">{{ tech }}</span>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                        <div class="d-flex gap-2 flex-wrap mt-auto">
+                            {% if project.repo_url %}
+                            <a href="{{ project.repo_url }}" class="btn-repo" target="_blank">
+                                <i class="bi bi-github me-1"></i>Repositorio
+                            </a>
+                            {% endif %}
+                            {% if project.case_study %}
+                            <a href="{% url 'portfolio:case-study' project.case_study.slug %}"
+                               class="btn-primary-custom btn-sm" style="font-size: 0.85rem; padding: 0.35rem 0.9rem;">
+                                <i class="bi bi-journal-text me-1"></i>Caso de Estudio
+                            </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- No match message -->
+        <div class="no-match-msg">
+            <i class="bi bi-search me-2"></i>No se encontraron proyectos que coincidan con tu búsqueda.
+        </div>
+
+        {% else %}
+        <div class="alert" style="background: var(--clr-glass); border: 1px solid var(--clr-border);" role="alert">
+            <i class="bi bi-info-circle me-1"></i>No hay proyectos cargados todavía.
+            <a href="/admin/cv/project/add/" style="color: var(--clr-secondary); font-weight: 600;">Agregar desde el Admin</a>.
+        </div>
+        {% endif %}
+    </section>
+
+</div>
+{% endblock %}
