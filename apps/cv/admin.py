@@ -2,7 +2,7 @@ from django.contrib import admin
 
 from .models import (
     Achievement, Certification, Education, Experience,
-    Language, Presentation, Profile, Project, Publication, Skill,
+    Language, Presentation, Profile, Publication, Skill,
 )
 
 
@@ -39,12 +39,6 @@ class EducationAdmin(admin.ModelAdmin):
     ordering     = ("-year",)
 
 
-@admin.register(Project)
-class ProjectAdmin(admin.ModelAdmin):
-    list_display  = ("name", "stack", "featured", "repo_url")
-    list_filter   = ("featured",)
-    search_fields = ("name", "stack")
-    list_editable = ("featured",)
 
 
 @admin.register(Language)

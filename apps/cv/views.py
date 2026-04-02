@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django.utils import timezone
 
-from .models import Profile, Skill, Experience, Education, Language, Project
-from apps.portfolio.models import Proyecto
+from .models import Profile, Skill, Experience, Education, Language
+from apps.portfolio.models import Project as PortfolioProject
 
 
 def index(request):
@@ -14,7 +14,7 @@ def index(request):
     """
     profile = Profile.objects.first()
     if profile is None:
-        return render(request, "cv/sin_datos.html", status=503)
+        return render(request, "cv/no_data.html", status=503)
 
     experience_qs = Experience.objects.prefetch_related("achievements").all()
 
@@ -26,7 +26,7 @@ def index(request):
 
     stats = {
         "years_experience": years_experience,
-        "total_projects":   Proyecto.objects.count(),
+        "total_projects":   PortfolioProject.objects.count(),
         "total_skills":     Skill.objects.count(),
         "total_languages":  Language.objects.count(),
     }
@@ -44,7 +44,6 @@ def index(request):
             or Experience.objects.prefetch_related("achievements").all()[:3]
         ),
         "education":  Education.objects.all(),
-        "projects":   Project.objects.filter(featured=True),
         "languages":  Language.objects.all(),
         "stats":      stats,
     }
@@ -52,8 +51,6 @@ def index(request):
 
 
 def project_list(request):
-    """Vista con el listado completo de proyectos, destacados primero (CR-17)."""
-    context = {
-        "projects": Project.objects.order_by("-featured", "name"),
-    }
-    return render(request, "cv/proyectos.html", context)
+    """Redirige al portfolio principal (CR-17 consolidado)."""
+    from django.shortcuts import redirect
+    return redirect('portfolio:index')

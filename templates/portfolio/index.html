@@ -94,4 +94,52 @@
     </div>
 </section>
 
+<!-- ===================== OTHER PROJECTS ===================== -->
+{% if otros_proyectos %}
+<section id="other-projects" class="container mb-5 reveal">
+    <hr class="section-divider mb-5">
+    <h3 class="text-center mb-4">
+        <i class="bi bi-folder2-open me-2"></i>Otros Proyectos
+    </h3>
+    <div class="row g-4">
+        {% for project in otros_proyectos %}
+        <div class="col-md-6 col-lg-4">
+            <div class="glass-card h-100 shadow-sm d-flex flex-column">
+                <div class="card-body d-flex flex-column p-4">
+                    <h5 class="card-title mb-2" style="color: var(--clr-primary);">
+                        {{ project.nombre }}
+                    </h5>
+                    <p class="card-text text-muted small flex-grow-1">{{ project.descripcion }}</p>
+                    
+                    {% if project.tecnologias %}
+                    <p class="text-secondary small opacity-75 mb-3">
+                        <i class="bi bi-stack me-1"></i>{{ project.tecnologias }}
+                    </p>
+                    {% endif %}
+
+                    <div class="mt-auto pt-3 d-flex gap-2">
+                        {% if project.url_repositorio %}
+                        <a href="{{ project.url_repositorio }}"
+                           class="btn-repo btn-sm"
+                           target="_blank" rel="noopener noreferrer">
+                            <i class="bi bi-github me-1"></i>Repo
+                        </a>
+                        {% endif %}
+                        
+                        {% if project.url_demo %}
+                        <a href="{{ project.url_demo }}"
+                           class="btn-primary-custom btn-sm"
+                           target="_blank" rel="noopener noreferrer">
+                            <i class="bi bi-eye me-1"></i>Demo
+                        </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endif %}
+
 {% endblock %}

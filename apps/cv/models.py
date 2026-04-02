@@ -73,17 +73,6 @@ class Education(models.Model):
         return f"{self.degree} — {self.institution}"
 
 
-class Project(models.Model):
-    """Proyecto técnico desarrollado."""
-
-    name        = models.CharField(max_length=150)
-    description = models.TextField()
-    stack       = models.CharField(max_length=200, blank=True)
-    repo_url    = models.URLField(blank=True)
-    featured    = models.BooleanField(default=False)
-
-    def __str__(self) -> str:
-        return self.name
 
 
 class Language(models.Model):

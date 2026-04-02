@@ -1,8 +1,8 @@
 from django.contrib import admin
-from .models import Proyecto, CaseStudy
+from .models import Project, CaseStudy
 
-@admin.register(Proyecto)
-class ProyectoAdmin(admin.ModelAdmin):
+@admin.register(Project)
+class ProjectAdmin(admin.ModelAdmin):
     list_display = ('nombre', 'destacado', 'orden', 'fecha_creacion')
     list_filter = ('destacado',)
     search_fields = ('nombre', 'descripcion', 'tecnologias')

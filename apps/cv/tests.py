@@ -1,7 +1,7 @@
 from django.test import TestCase
 from django.urls import reverse
 
-from .models import Achievement, Education, Experience, Language, Profile, Project, Skill
+from .models import Achievement, Education, Experience, Language, Profile, Skill
 
 
 class IndexViewTest(TestCase):
@@ -11,7 +11,7 @@ class IndexViewTest(TestCase):
         """Sin datos de Profile, la home retorna HTTP 503."""
         response = self.client.get(reverse("cv:index"))
         self.assertEqual(response.status_code, 503)
-        self.assertTemplateUsed(response, "cv/sin_datos.html")
+        self.assertTemplateUsed(response, "cv/no_data.html")
 
     def test_index_con_perfil_retorna_200(self):
         """Con un Profile cargado, la home retorna HTTP 200."""
@@ -66,24 +66,7 @@ class IndexViewTest(TestCase):
             f"Posible N+1: se ejecutaron {len(ctx.captured_queries)} queries")
 
 
-class ProjectListViewTest(TestCase):
-    """Tests para la vista de listado de proyectos (CR-19)."""
 
-    def test_projects_retorna_200(self):
-        response = self.client.get(reverse("cv:project-list"))
-        self.assertEqual(response.status_code, 200)
-
-    def test_projects_vacio_muestra_mensaje(self):
-        response = self.client.get(reverse("cv:project-list"))
-        self.assertContains(response, "No hay proyectos")
-
-    def test_projects_orden_featured_primero(self):
-        """Los proyectos destacados aparecen antes que los no destacados."""
-        Project.objects.create(name="Proyecto B", description="Desc", featured=False)
-        Project.objects.create(name="Proyecto A", description="Desc", featured=True)
-        response = self.client.get(reverse("cv:project-list"))
-        proyectos = list(response.context["projects"])
-        self.assertTrue(proyectos[0].featured)
 
 
 class ModelStrTest(TestCase):
@@ -110,6 +93,3 @@ class ModelStrTest(TestCase):
         lang = Language(name="Inglés", level="Avanzado")
         self.assertEqual(str(lang), "Inglés (Avanzado)")
 
-    def test_project_str(self):
-        p = Project(name="Mi Proyecto", description="Desc")
-        self.assertEqual(str(p), "Mi Proyecto")

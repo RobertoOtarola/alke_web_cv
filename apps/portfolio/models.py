@@ -1,6 +1,6 @@
 from django.db import models
 
-class Proyecto(models.Model):
+class Project(models.Model):
     nombre      = models.CharField(max_length=200, db_index=True)
     descripcion = models.TextField()
     tecnologias = models.CharField(max_length=500, blank=True, null=True)
@@ -28,7 +28,7 @@ class CaseStudy(models.Model):
     """Detailed case study linked to a featured project."""
 
     proyecto = models.OneToOneField(
-        Proyecto,
+        Project,
         on_delete=models.CASCADE,
         related_name='case_study',
     )
