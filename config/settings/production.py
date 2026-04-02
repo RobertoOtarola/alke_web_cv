@@ -2,12 +2,17 @@ import dj_database_url
 from .base import *
 from decouple import config
 
-DEBUG = False
+# Configuración de nivel de depuración
+# NUNCA activar DEBUG en un servidor accesible públicamente.
+DEBUG = config('DEBUG', default=False, cast=bool)
 
+# Dominios permitidos (Render y dominio personalizado)
 ALLOWED_HOSTS = config(
     'ALLOWED_HOSTS',
+    default='alke-cv-web.onrender.com',
     cast=lambda v: [s.strip() for s in v.split(',')]
 )
+
 
 DATABASES = {
     'default': dj_database_url.config(conn_max_age=600)

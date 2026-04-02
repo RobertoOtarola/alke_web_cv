@@ -59,11 +59,14 @@ class Education(models.Model):
 
 
 class Project(models.Model):
-    name        = models.CharField(max_length=150)
+    name        = models.CharField(max_length=150, db_index=True)
     description = models.TextField()
-    stack       = models.CharField(max_length=200, blank=True)
+    stack       = models.CharField(max_length=200, blank=True, db_index=True)
     repo_url    = models.URLField(blank=True)
     featured    = models.BooleanField(default=False)
+
+    class Meta:
+        ordering = ['-id']
 
     @property
     def stack_list(self):

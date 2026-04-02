@@ -4,7 +4,15 @@ from decouple import config
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
+# ── Security ──────────────────────────────────────────────────────────────────
 SECRET_KEY = config('SECRET_KEY')
+if not SECRET_KEY:
+    raise ValueError("SECRET_KEY no configurado en las variables de entorno.")
+
+# URL personalizada para el panel de administración
+# Se recomienda cambiar 'admin-secret/' por un valor impredecible en producción.
+ADMIN_URL = config('DJANGO_ADMIN_URL', default='admin-secret/')
+
 
 INSTALLED_APPS = [
     "django.contrib.admin",
