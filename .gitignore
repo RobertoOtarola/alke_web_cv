@@ -165,4 +165,6 @@ celerybeat.pid
 # Technical Design Document
 # ===========================
 tdd
-.env\ndb.sqlite3\nstaticfiles/\n
+.env
+db.sqlite3
+staticfiles/

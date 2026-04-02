@@ -6,7 +6,7 @@ from apps.portfolio.models import Proyecto
 
 def index(request):
     """Home page: full CV with all sections + computed stats + CTA to portfolio."""
-    experience_qs = Experience.objects.all()
+    experience_qs = Experience.objects.prefetch_related('achievements').all()
 
     # Compute dynamic stats for the counter bar
     earliest_exp = experience_qs.order_by('start_date').first()

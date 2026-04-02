@@ -500,6 +500,22 @@ a:hover {
     padding: 1.5rem;
 }
 
+/* Secciones de contenido con estilo de tarjeta */
+.cv-section {
+    background-color: var(--clr-card);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--clr-border);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cv-section:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
 .project-card .card-text {
     flex-grow: 1;
 }

@@ -5,9 +5,17 @@ from decouple import config
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 # ── Security ──────────────────────────────────────────────────────────────────
-SECRET_KEY = config('SECRET_KEY')
-if not SECRET_KEY:
-    raise ValueError("SECRET_KEY no configurado en las variables de entorno.")
+# Validación estricta de variables obligatorias
+def require(key: str, default=None, cast=str):
+    """Falla explícitamente si una variable crítica no está en el entorno."""
+    from django.core.exceptions import ImproperlyConfigured
+    try:
+        return config(key, default=default, cast=cast)
+    except Exception:
+        raise ImproperlyConfigured(f"La variable de entorno '{key}' es requerida.")
+
+# SECRET_KEY no debe tener default en producción
+SECRET_KEY = require('SECRET_KEY')
 
 # URL personalizada para el panel de administración
 # Se recomienda cambiar 'admin-secret/' por un valor impredecible en producción.
@@ -72,6 +80,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
+# WhiteNoise: Compresión y cache-busting (manifest)
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MEDIA_URL  = '/media/'

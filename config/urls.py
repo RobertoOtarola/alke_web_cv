@@ -13,8 +13,8 @@ from django.conf.urls.static import static
 from django.http import HttpResponse
 
 def health_check(request):
-    """Básico endpoint de health check."""
-    return HttpResponse("ok")
+    """Endpoint formal para monitoreo de salud del servicio (Render)."""
+    return HttpResponse("ok", content_type="text/plain", status=200)
 
 urlpatterns = [
     # Panel de administración (URL Configurada por env variable)
