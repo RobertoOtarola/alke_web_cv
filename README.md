@@ -1,30 +1,34 @@
-# 🐍 CV Dinámico
+# 🐍 CV Dinámico & Portafolio Técnico
 
-**Bootcamp Desarrollo de Aplicaciones Fullstack Python Trainee | Módulo #7 | Deploy**
+**Bootcamp Desarrollo de Aplicaciones Fullstack Python Trainee | Módulo #7 | Reingeniería & Deploy**
 
-Aplicación web Django profesional para editar y renderizar un Curriculum Vitae dinámico. Esta versión incluye refactorización de arquitectura orientada al dominio (`apps/cv`), separación estricta de entornos de configuración y todo lo necesario para despliegue en producción usando **Render** (servidor web) y **Supabase** (PostgreSQL).
+Esta aplicación ha sido reestructurada como una plataforma profesional que separa la presentación del currículum dinámico (`cv`) de la galería de proyectos técnicos (`portfolio`). Utiliza una arquitectura moderna orientada al dominio, estilizada con el kit de marca **Earthy & Trustworthy** (Deep Teal, Warm Gold, Vibrant Green).
 
 ---
 
 ## 📋 Tabla de Contenidos
 
-- [Características](#-características)
-- [Tech Stack](#-tech-stack)
-- [Estructura del Proyecto](#-estructura-del-proyecto)
-- [Instalación y Uso Local](#-instalación-y-uso-local)
-- [Población Dinámica del CV](#-población-dinámica-del-cv)
-- [Despliegue a Producción](#-despliegue-a-producción-render--supabase)
-- [Convenciones Git](#-convenciones-git)
+- [✨ Características](#-características)
+- [🛠 Tech Stack](#-tech-stack)
+- [📁 Estructura del Proyecto](#-estructura-del-proyecto)
+- [🚀 Instalación y Uso Local](#-instalación-y-uso-local)
+- [☁️ Sincronización con Supabase](#-sincronización-con-supabase)
+- [🌐 Despliegue a Producción](#-despliegue-a-producción-render--supabase)
 
 ---
 
 ## ✨ Características
 
-- **Arquitectura de Dominio** — Separación del core (`config`) de la lógica de negocio (`apps/cv`).
-- **Configuración Enrutada** — División limpia entre entornos locales (`local.py`) y de producción (`production.py`).
-- **Despliegue Continuo (CI/CD Ready)** — Funciona nativamente en Render mediante `build.sh`.
-- **CV Administrable** — Panel avanzado en Django Admin con `AchievementInline`.
-- **Seguridad** — Envvars aisladas con `python-decouple`, control HTTPS directo y Cookies Seguras implementadas para producción.
+- **Dos Aplicaciones Nucleares:**
+  - `cv`: Gestión del perfil profesional, habilidades, experiencia laboral, educación y certificaciones.
+  - `portfolio`: Hub de empleabilidad con galería de proyectos y **Casos de Estudio** dinámicos.
+- **Frontend Premium:** Rediseño completo usando **Bootstrap 5.3** y **jQuery**.
+  - **Scroll Reveal & Animations**: Efectos visuales fluidos al navegar.
+  - **Dark Mode**: Toggle inteligente para comodidad visual.
+  - **Project Search & Filters**: Búsqueda en tiempo real de proyectos y filtrado por tecnologías.
+  - **Skill Badges & Counters**: Visualización dinámica de estadísticas y habilidades.
+  - **Glassmorphism Hero**: Diseño moderno con efectos de transparencia.
+- **Sincronización Automática**: Script para poblar la base de datos remota de Supabase desde un archivo JSON estructurado.
 
 ---
 
@@ -34,9 +38,11 @@ Aplicación web Django profesional para editar y renderizar un Curriculum Vitae 
 |---|---|
 | Python 3.12 | Lenguaje principal |
 | Django 6.0 | Framework web |
-| Gunicorn & WhiteNoise| Servidor backend de producción y renderizado de recursos estáticos |
-| Supabase (PostgreSQL)| Base de Datos en la nube (producción) |
-| SQLite | Base de datos por defecto (desarrollo local) |
+| jQuery | Lógica de interactividad frontend |
+| Bootstrap 5.3 | Sistema de diseño y layout |
+| Supabase (Postgres) | Base de Datos en producción |
+| WhiteNoise | Gestión de archivos estáticos |
+| Python-Decouple | Gestión de variables de entorno segura |
 
 ---
 
@@ -44,112 +50,78 @@ Aplicación web Django profesional para editar y renderizar un Curriculum Vitae 
 
 ```text
 alke_web_cv/
-├── .env                          ← Variables de entorno (ignorado en git)
-├── requirements.txt              ← Dependencias de producción
-├── build.sh                      ← Script de construcción automático para Render
-├── populate_cv.py                ← Script de semilla (Seed) de la Base de Datos
-├── manage.py
-│
-├── config/                       ← Configuración centralizada
-│   ├── settings/
-│   │   ├── base.py               ← Lógica general compartida 
-│   │   ├── local.py              ← Solo desarrollo y SQLite
-│   │   └── production.py         ← Reglas de seguridad + PostgreSQL para Render
-│   ├── urls.py
-│   ├── wsgi.py
-│   └── asgi.py
-│
-├── apps/                         ← Módulos de aplicación
-│   └── cv/                       ← Lógica del CV dinámico
-│       ├── models.py
-│       ├── views.py
-│       └── ...
-│
+├── apps/
+│   ├── cv/                 ← CV Dinámico (Modelos: Profile, Experience, Skill, etc.)
+│   └── portfolio/          ← Proyectos y Casos de Estudio (Slug-driven detail views)
+├── config/                 ← Configuración centralizada (Settings local/production)
 ├── templates/
-│   ├── base.html
-│   └── cv/                       ← Vistas HTML del CV
-│
-├── static/                       ← Archivos de diseño CSS e imágenes
-└── media/                        ← Imágenes de perfil e integraciones multimedias cargadas
+│   ├── base.html           ← Layout con Navbar y Footer unificados
+│   ├── cv/                 ← index.html (CV Personal)
+│   └── portfolio/          ← landing.html (Showcase) y projects.html (Lista completa)
+├── static/
+│   ├── css/custom.css      ← Design System (Earthy & Trustworthy tokens)
+│   ├── js/main.js          ← Lógica jQuery (Filtros, Dark mode, Animaciones)
+│   └── img/portfolio/      ← Assets de proyectos
+├── upload_cv_to_supabase.py ← Herramienta de sincronización JSON → DB
+└── cv_roberto_otarola.json  ← Fuente de veracidad de datos del CV
 ```
 
 ---
 
 ## 🚀 Instalación y Uso Local
 
-### 1. Clonar el repositorio
-```bash
-git clone https://github.com/robertootarola/alke_web_cv.git
-cd alke_web_cv
-```
+1. **Clonar e instalar dependencias:**
+   ```bash
+   git clone https://github.com/robertootarola/alke_web_cv.git
+   cd alke_web_cv
+   python -m venv venv && source venv/bin/activate
+   pip install -r requirements.txt
+   ```
 
-### 2. Entorno virtual & Dependencias
-```bash
-python -m venv venv
-source venv/bin/activate  # macOS/Linux
-# o venv\Scripts\activate para Windows
+2. **Configurar el entorno (`.env`):**
+   Crea un archivo `.env` basado en los requerimientos del proyecto:
+   ```env
+   SECRET_KEY=tu_secreto
+   DEBUG=True
+   ALLOWED_HOSTS=localhost,127.0.0.1
+   DATABASE_URL=sqlite:///db.sqlite3
+   # Para usar el script de carga:
+   SUPABASE_URL=tu_url_supabase
+   SUPABASE_KEY=tu_service_role_key
+   ```
 
-pip install -r requirements.txt
-```
-
-### 3. Configurar variables de entorno (`.env`)
-Crear un archivo `.env` en la raíz del proyecto para ambiente de desarrollo:
-```env
-SECRET_KEY=tu-clave-secreta-de-desarrollo
-DEBUG=True
-ALLOWED_HOSTS=localhost,127.0.0.1
-DATABASE_URL=sqlite:///db.sqlite3
-```
-
-### 4. Migraciones
-El proyecto automáticamente cargará el entorno `local.py`:
-```bash
-python manage.py makemigrations cv
-python manage.py migrate
-```
+3. **Migraciones:**
+   ```bash
+   python manage.py makemigrations
+   python manage.py migrate
+   ```
 
 ---
 
-## 🌱 Población Dinámica del CV
+## ☁️ Sincronización con Supabase
 
-Este proyecto cuenta con un script capaz de cargar todos los datos base del CV a la Base de Datos en un solo paso ahorrando ingresos manuales.
-Tras terminar las migraciones, corre este comando por consola:
+Para cargar de forma masiva los datos de tu CV y asegurar que la base de datos remota esté sincronizada con `cv_roberto_otarola.json`, utiliza el script automatizado:
 
 ```bash
-python populate_cv.py
-```
-*Inyectará automáticamente todo tu perfil profesional, experiencias (como AUTOENERGIAS), estudios y habilidades. Luego podrás editarlas libremente en http://localhost:8000/admin.*
+# Sincronización total (Carga de las 10 entidades)
+python upload_cv_to_supabase.py
 
-Puedes abrir el servidor localmente con `python manage.py runserver` y visualizar tus logros. 
+# Verificación sin escribir cambios
+python upload_cv_to_supabase.py --dry-run
+```
+
+Este script limpia las tablas existentes y reinserta los datos manteniendo la integridad referencial (Achievements v/s Experiences).
 
 ---
 
-## 🌐 Despliegue a Producción (Render + Supabase)
+## 🌐 Despliegue a Producción (Render)
 
-### Paso 1: Base de Datos (Supabase)
-Crea un proyecto gratuito en **Supabase**, dirígete a Database Settings y extrae tu `DATABASE_URL`. Reemplaza tu contraseña (evita caracteres especiales extraños para no corromper la URI).
-
-### Paso 2: Servidor (Render)
-1. Conecta tu cuenta de Github a **Render** y crea un nuevo *Web Service*.
+1. En Render, crea un **Web Service**.
 2. **Build Command**: `bash build.sh`
 3. **Start Command**: `gunicorn config.wsgi:application`
-4. Carga las variables de entorno (*Environment Variables*):
-   - `DATABASE_URL`: Pegar tu URL de Supabase PostgreSQL.
-   - `SECRET_KEY`: Una clave alfanumérica encriptada.
-   - `DJANGO_SETTINGS_MODULE`: `config.settings.production`
-   - `ALLOWED_HOSTS`: `alke-cv-web.onrender.com`
-
----
-
-## 🌿 Convenciones Git
-
-**Ramas:**
-- `main`: Producción / despliegue en Render (Release versions).
-- `develop`: Integración continua de funcionalidades.
-- `feature/*`: Desarrollo de nuevas capacidades aisladas del CV.
+4. Define las variables de entorno, incluyendo `DJANGO_SETTINGS_MODULE=config.settings.production`.
 
 ---
 
 ## 📄 Licencia
-
 GPL-3.0

@@ -40,7 +40,7 @@ class Achievement(models.Model):
     experience  = models.ForeignKey(
         Experience, on_delete=models.CASCADE, related_name='achievements'
     )
-    description = models.CharField(max_length=255)
+    description = models.CharField(max_length=500)
 
     def __str__(self):
         return self.description[:60]
@@ -78,7 +78,46 @@ class Project(models.Model):
 
 class Language(models.Model):
     name  = models.CharField(max_length=80)
-    level = models.CharField(max_length=30)
+    level = models.CharField(max_length=100)
 
     def __str__(self):
         return f"{self.name} ({self.level})"
+
+
+class Certification(models.Model):
+    year        = models.PositiveSmallIntegerField()
+    name        = models.CharField(max_length=200)
+    institution = models.CharField(max_length=150)
+
+    class Meta:
+        ordering = ['-year']
+
+    def __str__(self):
+        return f"{self.name} ({self.year})"
+
+
+class Publication(models.Model):
+    publication_type = models.CharField(max_length=50)
+    title = models.CharField(max_length=255)
+    event = models.CharField(max_length=200)
+    year  = models.PositiveSmallIntegerField()
+    role  = models.CharField(max_length=100)
+
+    class Meta:
+        ordering = ['-year']
+
+    def __str__(self):
+        return self.title
+
+
+class Presentation(models.Model):
+    event    = models.CharField(max_length=200)
+    location = models.CharField(max_length=150)
+    year     = models.PositiveSmallIntegerField()
+    topic    = models.CharField(max_length=255)
+
+    class Meta:
+        ordering = ['-year']
+
+    def __str__(self):
+        return self.event

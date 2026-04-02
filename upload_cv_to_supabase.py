@@ -172,7 +172,7 @@ def transform_publications(data: dict) -> list:
     """Transforma el bloque 'publications' del JSON al formato de cv_publication."""
     return [
         {
-            'type_':  p['type'],
+            'publication_type':  p['type'],
             'title':  p['title'],
             'event':  p['event'],
             'year':   p['year'],
