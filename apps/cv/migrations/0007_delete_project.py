@@ -10,8 +10,7 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.RunSQL(
-            sql='DROP TABLE IF EXISTS "cv_project";',
-            reverse_sql=migrations.RunSQL.noop,
+        migrations.DeleteModel(
+            name="Project",
         ),
     ]
