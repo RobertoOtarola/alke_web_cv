@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django.utils import timezone
 
-from .models import Profile, Skill, Experience, Project, Education, Language
-
+from .models import Profile, Skill, Experience, Education, Language
+from apps.portfolio.models import Proyecto
 
 def index(request):
     """Home page: full CV with all sections + computed stats + CTA to portfolio."""
@@ -16,7 +16,7 @@ def index(request):
 
     stats = {
         'years_experience': years_experience,
-        'total_projects':   Project.objects.count(),
+        'total_projects':   Proyecto.objects.count(),
         'total_skills':     Skill.objects.count(),
         'total_languages':  Language.objects.count(),
     }

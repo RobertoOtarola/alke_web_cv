@@ -41,7 +41,7 @@ TABLE_MAP = {
     'certifications': 'cv_certification',
     'publications':   'cv_publication',
     'presentations':  'cv_presentation',
-    'projects':       'cv_project',
+    'projects':       'portfolio_proyecto',
 }
 
 
@@ -143,14 +143,15 @@ def transform_languages(data: dict) -> list:
 
 
 def transform_projects(data: dict) -> list:
-    """Transforma el bloque 'projects' del JSON al formato de la tabla cv_project."""
+    """Transforma el bloque 'projects' del JSON al formato de la tabla portfolio_proyecto."""
     return [
         {
-            'name':        p['name'],
-            'description': p['description'],
-            'stack':       p.get('stack', ''),
-            'repo_url':    p.get('repo_url', ''),
-            'featured':    p.get('featured', False),
+            'nombre':          p['name'],
+            'descripcion':     p['description'],
+            'tecnologias':     p.get('stack', ''),
+            'url_repositorio': p.get('repo_url', ''),
+            'destacado':       p.get('featured', False),
+            # 'url_demo' e 'imagen_url' se manejarán vía fixture o edición manual
         }
         for p in data['projects']
     ]

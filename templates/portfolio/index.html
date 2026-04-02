@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Portfolio — Roberto Otárola{% endblock %}
+
+{% block content %}
+
+<!-- ===================== HERO SECTION ===================== -->
+<section class="hero-section" id="about">
+    <div class="container text-center">
+        <div class="hero-glass-panel mx-auto reveal">
+            <h1 class="mb-3">Desarrollador Junior | Python · Django · SQL</h1>
+            <p>
+                Hola, soy Roberto Otárola y te doy la bienvenida a mi portafolio de proyectos de aplicaciones web,
+                resultado de mi formación intensiva como Desarrollador Fullstack Python Trainee.
+            </p>
+            <p>
+                Mi enfoque está en la creación de aplicaciones robustas, diseño técnico estructurado y limpieza de datos,
+                aportando valor mediante la construcción de soluciones eficientes y escalables.
+            </p>
+            <div class="mt-4 d-flex justify-content-center gap-3 flex-wrap">
+                <a href="#portfolio" class="hero-btn btn btn-sm">
+                    <i class="bi bi-folder2-open me-1"></i>Ver mis proyectos
+                </a>
+                <a href="https://github.com/RobertoOtarola" target="_blank" class="hero-btn btn btn-sm">
+                    <i class="bi bi-github me-1"></i>Visitar GitHub
+                </a>
+                <a href="{% url 'cv:index' %}" class="hero-btn btn btn-sm">
+                    <i class="bi bi-file-earmark-person me-1"></i>Ver mi CV
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== PORTFOLIO GRID ===================== -->
+<section id="portfolio" class="container section-cv mb-5">
+    <h2 class="text-center mb-5 reveal">
+        <i class="bi bi-code-slash me-2"></i>Proyectos Destacados
+    </h2>
+    <div class="row g-4 justify-content-center">
+        {% for proyecto in proyectos %}
+        <div class="col-md-4 project-card reveal">
+            <div class="glass-card h-100 d-flex flex-column">
+                {% if proyecto.imagen_url %}
+                <img src="{{ proyecto.imagen_url }}" class="card-img-top-portfolio"
+                     alt="Imagen del proyecto {{ proyecto.nombre }}" loading="lazy">
+                {% else %}
+                <div class="card-img-top-portfolio bg-secondary d-flex align-items-center justify-content-center">
+                    <i class="bi bi-image text-white opacity-50 fs-1"></i>
+                </div>
+                {% endif %}
+
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title" style="color: var(--clr-primary); font-size: 1.35rem;">
+                        {{ proyecto.nombre }}
+                    </h5>
+                    <p class="card-text text-muted small">{{ proyecto.descripcion }}</p>
+
+                    {% if proyecto.tecnologias %}
+                    <div class="stack-tags mb-3">
+                        <small class="text-secondary opacity-75">
+                            <i class="bi bi-tags me-1"></i>{{ proyecto.tecnologias }}
+                        </small>
+                    </div>
+                    {% endif %}
+
+                    <div class="mt-auto d-flex gap-2 flex-wrap">
+                        {% if proyecto.url_repositorio %}
+                        <a href="{{ proyecto.url_repositorio }}" class="btn-repo" target="_blank" rel="noopener">
+                            <i class="bi bi-github me-1"></i>Repo
+                        </a>
+                        {% endif %}
+
+                        {% if proyecto.case_study %}
+                        <a href="{% url 'portfolio:case-study' proyecto.case_study.slug %}"
+                           class="btn-primary-custom btn-sm">
+                            <i class="bi bi-journal-text me-1"></i>Info
+                        </a>
+                        {% elif proyecto.url_demo %}
+                        <a href="{{ proyecto.url_demo }}" class="btn-primary-custom btn-sm" target="_blank" rel="noopener">
+                            <i class="bi bi-eye me-1"></i>Demo
+                        </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="col-12 text-center text-muted py-5">
+            <p>No hay proyectos destacados configurados aún.</p>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+{% endblock %}

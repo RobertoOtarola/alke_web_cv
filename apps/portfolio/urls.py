@@ -1,11 +1,16 @@
 from django.urls import path
-
+from django.views.generic import RedirectView
 from . import views
 
-app_name = 'portfolio'
+app_name = "portfolio"
 
 urlpatterns = [
-    path('', views.landing, name='landing'),
-    path('proyectos/', views.project_list, name='project-list'),
-    path('caso-de-estudio/<slug:slug>/', views.case_study_detail, name='case-study'),
+    # Vista principal (Grid de proyectos destacados)
+    path("", views.portfolio_index, name="index"),
+
+    # Caso de estudio específico
+    path("caso-estudio/<slug:slug>/", views.case_study_detail, name="case-study"),
+
+    # Redirección de la ruta antigua (301)
+    path("proyectos/", RedirectView.as_view(pattern_name="portfolio:index", permanent=True), name="proyectos_redirect"),
 ]

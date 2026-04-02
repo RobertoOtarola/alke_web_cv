@@ -1,13 +1,33 @@
 from django.db import models
 
-from apps.cv.models import Project
+class Proyecto(models.Model):
+    nombre      = models.CharField(max_length=200, db_index=True)
+    descripcion = models.TextField()
+    tecnologias = models.CharField(max_length=500, blank=True)
+    url_repositorio = models.URLField(blank=True)
+    url_demo    = models.URLField(blank=True)
+    imagen_url  = models.URLField(
+        blank=True,
+        help_text="URL absoluta de la imagen del proyecto (GitHub Pages u otro CDN)."
+    )
+    destacado   = models.BooleanField(default=False, db_index=True)
+    orden       = models.PositiveSmallIntegerField(default=0)
+    fecha_creacion = models.DateField(auto_now_add=True)
+
+    class Meta:
+        ordering = ["orden", "-fecha_creacion"]
+        verbose_name = "Proyecto"
+        verbose_name_plural = "Proyectos"
+
+    def __str__(self):
+        return self.nombre
 
 
 class CaseStudy(models.Model):
     """Detailed case study linked to a featured project."""
 
-    project = models.OneToOneField(
-        Project,
+    proyecto = models.OneToOneField(
+        Proyecto,
         on_delete=models.CASCADE,
         related_name='case_study',
     )
@@ -66,7 +86,7 @@ class CaseStudy(models.Model):
         verbose_name_plural = 'Casos de Estudio'
 
     def __str__(self):
-        return f'Caso de Estudio: {self.project.name}'
+        return f'Caso de Estudio: {self.proyecto.nombre}'
 
     @property
     def skills_list(self):

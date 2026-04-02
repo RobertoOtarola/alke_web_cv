@@ -1,0 +1,45 @@
+[
+  {
+    "model": "portfolio.proyecto",
+    "pk": 1,
+    "fields": {
+      "nombre": "Alke Wallet Web",
+      "descripcion": "Aplicación web financiera diseñada para gestionar transacciones y visualizar saldos en tiempo real mediante una interfaz intuitiva con tecnología actual y responsiva.",
+      "tecnologias": "Python · Django · PostgreSQL · Bootstrap",
+      "url_repositorio": "https://github.com/RobertoOtarola/alke_wallet_web",
+      "imagen_url": "https://robertootarola.github.io/assets/img/alke_wallet.png",
+      "destacado": true,
+      "orden": 1,
+      "fecha_creacion": "2026-04-01"
+    }
+  },
+  {
+    "model": "portfolio.proyecto",
+    "pk": 2,
+    "fields": {
+      "nombre": "PokeParty Optimizer",
+      "descripcion": "Solución a challenge técnico enfocado en integración, consumo y mapeo de una API externa, evidenciando destreza en manejo de peticiones HTTP y estructuras JSON.",
+      "tecnologias": "Python · Requests · JSON",
+      "url_repositorio": "https://github.com/RobertoOtarola/pokeparty_optimizer",
+      "imagen_url": "https://robertootarola.github.io/assets/img/pokeparty.png",
+      "destacado": true,
+      "orden": 2,
+      "fecha_creacion": "2026-04-01"
+    }
+  },
+  {
+    "model": "portfolio.proyecto",
+    "pk": 3,
+    "fields": {
+      "nombre": "Alke Web CV",
+      "descripcion": "Plataforma de presentación profesional. Caso de estudio clave que demuestra evolución técnica mediante su refactorización para entornos de producción y despliegue.",
+      "tecnologias": "Python · Django 5.2 · PostgreSQL · Supabase · Render · WhiteNoise · Gunicorn",
+      "url_repositorio": "https://github.com/RobertoOtarola/alke_web_cv",
+      "url_demo": "https://robertootarola.github.io/case-study.html",
+      "imagen_url": "https://robertootarola.github.io/assets/img/alke_cv.png",
+      "destacado": true,
+      "orden": 3,
+      "fecha_creacion": "2026-04-01"
+    }
+  }
+]

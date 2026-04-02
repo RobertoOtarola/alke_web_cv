@@ -58,26 +58,6 @@ class Education(models.Model):
         return f"{self.degree} — {self.institution}"
 
 
-class Project(models.Model):
-    name        = models.CharField(max_length=150, db_index=True)
-    description = models.TextField()
-    stack       = models.CharField(max_length=200, blank=True, db_index=True)
-    repo_url    = models.URLField(blank=True)
-    featured    = models.BooleanField(default=False)
-
-    class Meta:
-        ordering = ['-id']
-
-    @property
-    def stack_list(self):
-        """Return stack as a list of trimmed technology names."""
-        if self.stack:
-            return [tech.strip() for tech in self.stack.split(',') if tech.strip()]
-        return []
-
-    def __str__(self):
-        return self.name
-
 
 class Language(models.Model):
     name  = models.CharField(max_length=80)

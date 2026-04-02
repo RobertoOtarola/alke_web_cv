@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Profile, Skill, Experience, Achievement, Education, Project, Language
+from .models import Profile, Skill, Experience, Achievement, Education, Language
 
 
 class AchievementInline(admin.TabularInline):
@@ -22,5 +22,4 @@ class ProfileAdmin(admin.ModelAdmin):
 
 admin.site.register(Skill)
 admin.site.register(Education)
-admin.site.register(Project)
 admin.site.register(Language)

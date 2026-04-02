@@ -1,15 +1,19 @@
 from django.contrib import admin
+from .models import Proyecto, CaseStudy
 
-from .models import CaseStudy
-
+@admin.register(Proyecto)
+class ProyectoAdmin(admin.ModelAdmin):
+    list_display = ('nombre', 'destacado', 'orden', 'fecha_creacion')
+    list_filter = ('destacado',)
+    search_fields = ('nombre', 'descripcion', 'tecnologias')
 
 @admin.register(CaseStudy)
 class CaseStudyAdmin(admin.ModelAdmin):
-    list_display = ('project', 'slug', 'subtitle')
-    prepopulated_fields = {'slug': ('project',)}
+    list_display = ('proyecto', 'slug', 'subtitle')
+    prepopulated_fields = {'slug': ('proyecto',)}
     fieldsets = (
         (None, {
-            'fields': ('project', 'slug', 'subtitle', 'image', 'skills_applied'),
+            'fields': ('proyecto', 'slug', 'subtitle', 'image', 'skills_applied'),
         }),
         ('Secciones del Caso de Estudio', {
             'classes': ('collapse',),
