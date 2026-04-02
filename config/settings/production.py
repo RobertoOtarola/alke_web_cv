@@ -9,7 +9,7 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 # Dominios permitidos (Render y dominio personalizado)
 ALLOWED_HOSTS = config(
     'ALLOWED_HOSTS',
-    default='alke-cv-web.onrender.com',
+    default='alke-web-cv.onrender.com',
     cast=lambda v: [s.strip() for s in v.split(',')]
 )
 
