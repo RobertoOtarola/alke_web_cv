@@ -1,15 +1,15 @@
 # Core Web Framework
-Django==6.0.3
+Django==5.2
 
 # WSGI server
 gunicorn==25.3.0
 
-# Static files and Security
+# Static files
 whitenoise==6.12.0
 
 # Database
 dj-database-url==3.1.2
-psycopg2-binary==2.9.11
+psycopg2==2.9.11
 
 # Cloud Storage (Cloudinary)
 cloudinary==1.42.0
@@ -21,5 +21,5 @@ pillow==12.1.1
 # Environment Variables
 python-decouple==3.8
 
-# Supabase SDK (optional, but keep for script consistency)
+# Supabase SDK (optional, for data population script)
 supabase==2.28.3

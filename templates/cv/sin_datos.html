@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Sitio en mantenimiento — Roberto Otárola{% endblock %}
+{% block meta_description %}El CV estará disponible en breve.{% endblock %}
+
+{% block content %}
+<div class="container py-5 text-center">
+    <i class="bi bi-tools display-1 text-secondary mb-4 d-block"></i>
+    <h1 class="fw-bold">Sitio en mantenimiento</h1>
+    <p class="lead text-muted mt-3">
+        El contenido del CV está siendo cargado.<br>
+        Vuelve en unos minutos.
+    </p>
+    {% if user.is_staff %}
+    <div class="alert alert-info mt-4 text-start" role="alert">
+        <strong>Solo visible para administradores:</strong>
+        No hay datos en la base de datos.
+        <a href="/admin/" class="alert-link">Ir al Admin</a> o
+        ejecutar <code>python populate_cv.py</code>.
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

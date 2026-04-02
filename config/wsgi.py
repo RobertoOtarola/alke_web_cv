@@ -1,10 +1,11 @@
 """
-WSGI config for config project.
+WSGI config para alke_web_cv.
 
-It exposes the WSGI callable as a module-level variable named ``application``.
+Documentación: https://docs.djangoproject.com/en/stable/howto/deployment/wsgi/
 
-For more information on this file, see
-https://docs.djangoproject.com/en/6.0/howto/deployment/wsgi/
+El valor por defecto apunta a 'local'. En producción (Render), la variable
+de entorno DJANGO_SETTINGS_MODULE sobreescribe este valor automáticamente
+con 'config.settings.production'.
 """
 
 import os
