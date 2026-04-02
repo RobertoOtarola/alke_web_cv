@@ -41,7 +41,7 @@ TABLE_MAP = {
     'certifications': 'cv_certification',
     'publications':   'cv_publication',
     'presentations':  'cv_presentation',
-    'projects':       'portfolio_proyecto',
+    'projects':       'portfolio_project',
 }
 
 
@@ -213,7 +213,6 @@ def upload_achievements(supabase: Client, exp_source: list, dry_run: bool) -> No
     table_ach = 'cv_achievement'
 
     print("\n── Cargando achievements ──")
-    clear_table(supabase, table_ach, dry_run)
 
     if dry_run:
         total = sum(len(e.get('achievements', [])) for e in exp_source)
@@ -284,6 +283,10 @@ def upload_all(data: dict, supabase: Client, only: str, dry_run: bool) -> None:
     if not only or only == 'experiences':
         experiences, exp_source = transform_experiences(data)
         print(f"\n── EXPERIENCES → {TABLE_MAP['experiences']} ──")
+        
+        # Primero limpiar tabla de logros para evitar error de FK
+        clear_table(supabase, 'cv_achievement', dry_run)
+        
         clear_table(supabase, TABLE_MAP['experiences'], dry_run)
         insert_rows(supabase, TABLE_MAP['experiences'], experiences, dry_run)
         upload_achievements(supabase, exp_source, dry_run)
