@@ -97,6 +97,9 @@
             {% for skill in soft_skills %}
             <span class="skill-badge skill-badge-soft" data-category="soft">{{ skill.name }}</span>
             {% endfor %}
+            {% if not hard_skills and not soft_skills %}
+            <p class="text-muted fst-italic">No se han registrado habilidades.</p>
+            {% endif %}
         </div>
     </section>
     <hr class="section-divider">
@@ -111,7 +114,7 @@
             {% for exp in experience %}
             <div class="timeline-item mb-4">
                 <div class="d-flex justify-content-between align-items-center flex-wrap mb-1">
-                    <h5 class="mb-0 text-primary">{{ exp.job_title }}</h5>
+                    <h5 class="mb-0 text-primary">{{ exp.role }}</h5>
                     <span class="badge bg-light text-dark">{{ exp.start_date|date:"M Y" }} - 
                         {% if exp.end_date %}{{ exp.end_date|date:"M Y" }}{% else %}Presente{% endif %}
                     </span>
@@ -148,6 +151,10 @@
                     </p>
                 </div>
             </div>
+            {% empty %}
+            <div class="col-12">
+                <p class="text-muted fst-italic">No se ha registrado formación académica.</p>
+            </div>
             {% endfor %}
         </div>
     </section>
@@ -163,6 +170,8 @@
             <span class="lang-badge">
                 <i class="bi bi-chat-dots me-1"></i>{{ lang.name }} — {{ lang.level }}
             </span>
+            {% empty %}
+            <p class="text-muted fst-italic">No se han registrado idiomas.</p>
             {% endfor %}
         </div>
     </section>
