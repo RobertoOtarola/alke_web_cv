@@ -1,41 +1,99 @@
 {
   "profile": {
-    "full_name": "Roberto Alexandre Otárola Estrada",
+    "full_name": "Roberto Otárola",
     "title": "Gerente Senior · Energías Renovables · Energía Solar FV & CSP · Desarrollo de Negocios",
     "bio": "Gerente senior con más de 18 años de experiencia en la industria de energías renovables, especializado en energía solar fotovoltaica (FV) y concentración solar de potencia (CSP). Doble formación en Ingeniería Comercial (Economía) y Magíster en Ingeniería de la Energía (PUC). Trayectoria comprobada en desarrollo de negocios, gerenciamiento de proyectos, representación técnica internacional y gestión de equipos multidisciplinarios en mercados latinoamericanos y globales. Bilingüe español-inglés, con dominio intermedio de portugués.",
     "location": "Santiago, Chile",
     "phone": "+56 9 6596 1857",
     "email": "roberto.otarola@yahoo.com",
     "linkedin_url": "https://www.linkedin.com/in/robertootarola/",
-    "github_url": "",
+    "github_url": "https://github.com/RobertoOtarola",
     "nationality": "Chileno",
     "driving_license": "Clase B",
     "available_to_travel": true
   },
-
   "skills": [
-    { "name": "Energía Solar Fotovoltaica (FV)", "category": "hard" },
-    { "name": "Concentración Solar de Potencia (CSP)", "category": "hard" },
-    { "name": "Sistemas de Almacenamiento de Energía (BESS)", "category": "hard" },
-    { "name": "Ingeniería Conceptual", "category": "hard" },
-    { "name": "PVsyst", "category": "hard" },
-    { "name": "NREL System Advisor Model (SAM)", "category": "hard" },
-    { "name": "RETScreen", "category": "hard" },
-    { "name": "HOMER Energy", "category": "hard" },
-    { "name": "Modelación Financiera", "category": "hard" },
-    { "name": "I+D+i (Investigación, Desarrollo e Innovación)", "category": "hard" },
-    { "name": "Desarrollo de Negocios B2B y B2C", "category": "soft" },
-    { "name": "Gerenciamiento de Proyectos", "category": "soft" },
-    { "name": "Planificación Estratégica", "category": "soft" },
-    { "name": "Negociación de Contratos", "category": "soft" },
-    { "name": "Liderazgo de Equipos Multidisciplinarios", "category": "soft" },
-    { "name": "Comunicaciones Internacionales", "category": "soft" },
-    { "name": "Docencia y Capacitación", "category": "soft" },
-    { "name": "Marketing Digital", "category": "soft" },
-    { "name": "Gestión de Presupuestos", "category": "soft" },
-    { "name": "Representación Técnica LATAM", "category": "soft" }
+    {
+      "name": "Energía Solar Fotovoltaica (FV)",
+      "category": "hard"
+    },
+    {
+      "name": "Concentración Solar de Potencia (CSP)",
+      "category": "hard"
+    },
+    {
+      "name": "Sistemas de Almacenamiento de Energía (BESS)",
+      "category": "hard"
+    },
+    {
+      "name": "Ingeniería Conceptual",
+      "category": "hard"
+    },
+    {
+      "name": "PVsyst",
+      "category": "hard"
+    },
+    {
+      "name": "NREL System Advisor Model (SAM)",
+      "category": "hard"
+    },
+    {
+      "name": "RETScreen",
+      "category": "hard"
+    },
+    {
+      "name": "HOMER Energy",
+      "category": "hard"
+    },
+    {
+      "name": "Modelación Financiera",
+      "category": "hard"
+    },
+    {
+      "name": "I+D+i (Investigación, Desarrollo e Innovación)",
+      "category": "hard"
+    },
+    {
+      "name": "Desarrollo de Negocios B2B y B2C",
+      "category": "soft"
+    },
+    {
+      "name": "Gerenciamiento de Proyectos",
+      "category": "soft"
+    },
+    {
+      "name": "Planificación Estratégica",
+      "category": "soft"
+    },
+    {
+      "name": "Negociación de Contratos",
+      "category": "soft"
+    },
+    {
+      "name": "Liderazgo de Equipos Multidisciplinarios",
+      "category": "soft"
+    },
+    {
+      "name": "Comunicaciones Internacionales",
+      "category": "soft"
+    },
+    {
+      "name": "Docencia y Capacitación",
+      "category": "soft"
+    },
+    {
+      "name": "Marketing Digital",
+      "category": "soft"
+    },
+    {
+      "name": "Gestión de Presupuestos",
+      "category": "soft"
+    },
+    {
+      "name": "Representación Técnica LATAM",
+      "category": "soft"
+    }
   ],
-
   "experiences": [
     {
       "company": "AUTOENERGIAS — Energía Solar y Baterías",
@@ -211,7 +269,6 @@
       ]
     }
   ],
-
   "education": [
     {
       "degree": "Magíster en Ingeniería de la Energía",
@@ -230,32 +287,102 @@
       "distinction": "Tercera más alta calificación en el Examen de Título de Economía"
     }
   ],
-
   "languages": [
-    { "name": "Español",   "level": "Nativo" },
-    { "name": "Inglés",    "level": "TOEIC Trabajo Avanzado (2+) — CORFO 2004" },
-    { "name": "Portugués", "level": "Intermedio" }
+    {
+      "name": "Español",
+      "level": "Nativo"
+    },
+    {
+      "name": "Inglés",
+      "level": "TOEIC Trabajo Avanzado (2+) — CORFO 2004"
+    },
+    {
+      "name": "Portugués",
+      "level": "Intermedio"
+    }
   ],
-
   "certifications": [
-    { "year": 2025, "name": "CC Certified in Cybersecurity (CC)",         "institution": "ISC2" },
-    { "year": 2025, "name": "Building Systems with the ChatGPT API",       "institution": "DeepLearning.AI" },
-    { "year": 2025, "name": "AI Python for Beginners",                     "institution": "DeepLearning.AI" },
-    { "year": 2024, "name": "ChatGPT Prompt Engineering for Developers",   "institution": "DeepLearning.AI" },
-    { "year": 2024, "name": "Startup School",                              "institution": "Y Combinator" },
-    { "year": 2023, "name": "Diplomado para Profesionales en Energía Fotovoltaica", "institution": "CPEF" },
-    { "year": 2023, "name": "Photovoltaic Systems",                        "institution": "Coursera" },
-    { "year": 2023, "name": "Generative AI for Everyone",                  "institution": "Coursera" },
-    { "year": 2022, "name": "Mejores Prácticas de Instalación de Sistemas FV con Baterías", "institution": "Solar Energy International" },
-    { "year": 2021, "name": "Choosing the Right Energy Storage System",    "institution": "CESA" },
-    { "year": 2021, "name": "Sunny Island Battery Inverter",               "institution": "SMA" },
-    { "year": 2017, "name": "Innovation Management",                       "institution": "Coursera" },
-    { "year": 2014, "name": "Photovoltaic Systems Training Course",        "institution": "Leonardo Energy" },
-    { "year": 2014, "name": "How to Build a Startup: The Lean Launchpad",  "institution": "Udacity" },
-    { "year": 2012, "name": "Entrenamiento sobre Proyectos Solares Fotovoltaicos", "institution": "BOSCH (Arnstadt, Alemania)" },
-    { "year": 2012, "name": "Intensive Seminar: Electrification of Remote Areas – Sunny Island", "institution": "SMA (Kassel, Alemania)" }
+    {
+      "year": 2025,
+      "name": "CC Certified in Cybersecurity (CC)",
+      "institution": "ISC2"
+    },
+    {
+      "year": 2025,
+      "name": "Building Systems with the ChatGPT API",
+      "institution": "DeepLearning.AI"
+    },
+    {
+      "year": 2025,
+      "name": "AI Python for Beginners",
+      "institution": "DeepLearning.AI"
+    },
+    {
+      "year": 2024,
+      "name": "ChatGPT Prompt Engineering for Developers",
+      "institution": "DeepLearning.AI"
+    },
+    {
+      "year": 2024,
+      "name": "Startup School",
+      "institution": "Y Combinator"
+    },
+    {
+      "year": 2023,
+      "name": "Diplomado para Profesionales en Energía Fotovoltaica",
+      "institution": "CPEF"
+    },
+    {
+      "year": 2023,
+      "name": "Photovoltaic Systems",
+      "institution": "Coursera"
+    },
+    {
+      "year": 2023,
+      "name": "Generative AI for Everyone",
+      "institution": "Coursera"
+    },
+    {
+      "year": 2022,
+      "name": "Mejores Prácticas de Instalación de Sistemas FV con Baterías",
+      "institution": "Solar Energy International"
+    },
+    {
+      "year": 2021,
+      "name": "Choosing the Right Energy Storage System",
+      "institution": "CESA"
+    },
+    {
+      "year": 2021,
+      "name": "Sunny Island Battery Inverter",
+      "institution": "SMA"
+    },
+    {
+      "year": 2017,
+      "name": "Innovation Management",
+      "institution": "Coursera"
+    },
+    {
+      "year": 2014,
+      "name": "Photovoltaic Systems Training Course",
+      "institution": "Leonardo Energy"
+    },
+    {
+      "year": 2014,
+      "name": "How to Build a Startup: The Lean Launchpad",
+      "institution": "Udacity"
+    },
+    {
+      "year": 2012,
+      "name": "Entrenamiento sobre Proyectos Solares Fotovoltaicos",
+      "institution": "BOSCH (Arnstadt, Alemania)"
+    },
+    {
+      "year": 2012,
+      "name": "Intensive Seminar: Electrification of Remote Areas – Sunny Island",
+      "institution": "SMA (Kassel, Alemania)"
+    }
   ],
-
   "publications": [
     {
       "type": "paper",
@@ -272,7 +399,6 @@
       "role": "Coautor"
     }
   ],
-
   "presentations": [
     {
       "event": "Eneryear Colombia 2023",
@@ -305,7 +431,6 @@
       "topic": "Cluster Solar Chile, País Exportador de Energía"
     }
   ],
-
   "projects": [
     {
       "name": "alke_web_cv — CV Web Dinámico",

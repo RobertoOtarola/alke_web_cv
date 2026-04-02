@@ -3,11 +3,12 @@ from django.db import models
 class Proyecto(models.Model):
     nombre      = models.CharField(max_length=200, db_index=True)
     descripcion = models.TextField()
-    tecnologias = models.CharField(max_length=500, blank=True)
-    url_repositorio = models.URLField(blank=True)
-    url_demo    = models.URLField(blank=True)
+    tecnologias = models.CharField(max_length=500, blank=True, null=True)
+    url_repositorio = models.URLField(blank=True, null=True)
+    url_demo    = models.URLField(blank=True, null=True)
     imagen_url  = models.URLField(
         blank=True,
+        null=True,
         help_text="URL absoluta de la imagen del proyecto (GitHub Pages u otro CDN)."
     )
     destacado   = models.BooleanField(default=False, db_index=True)

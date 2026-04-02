@@ -144,6 +144,8 @@ def transform_languages(data: dict) -> list:
 
 def transform_projects(data: dict) -> list:
     """Transforma el bloque 'projects' del JSON al formato de la tabla portfolio_proyecto."""
+    import datetime
+    today = datetime.date.today().isoformat()
     return [
         {
             'nombre':          p['name'],
@@ -151,7 +153,8 @@ def transform_projects(data: dict) -> list:
             'tecnologias':     p.get('stack', ''),
             'url_repositorio': p.get('repo_url', ''),
             'destacado':       p.get('featured', False),
-            # 'url_demo' e 'imagen_url' se manejarán vía fixture o edición manual
+            'orden':           0,
+            'fecha_creacion':  today,
         }
         for p in data['projects']
     ]
